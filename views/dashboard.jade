@@ -1,0 +1,84 @@
+
+extends loggedinlayout
+
+block content
+	.p-t
+	.container
+		.row
+			.col-sm-12
+				.form-group
+					.col-sm-4
+						label.control-label Select a patient
+					.col-sm-8
+						select.form-control
+							option 1
+							option 2
+							option 3
+							option 4
+							option 5
+		.row
+			.col-sm-4
+				ul.nav.nav-pills.nav-stacked
+					li.active(role='presentation')
+						a(data-toggle="tab", href='#profilepage') User Profile
+					li(role='presentation')
+						a(data-toggle="tab", href='#medicines') Medicines
+					li(role='presentation')
+						a(data-toggle="tab", href='#appointments') Appointments
+					li(role='presentation')
+						a(data-toggle="tab", href='#reports') Reports
+			.col-sm-8
+				.tab-content
+					#profilepage.tab-pane.fade.in.active
+						.col-sm-12
+							.col-sm-8.col-sm-offset-2
+								.form-group
+									.input-group
+										span.input-group-addon Email:
+										input.form-control(type='text', value='#{userdata.email}', readonly)
+								.form-group
+									.input-group
+										span.input-group-addon Address:
+										input.form-control(type='text', value='#{userdata.address[0].streetaddress + " " + userdata.address[0].city + ", " + userdata.address[0].state+ " " + userdata.address[0].zip}', readonly)
+								.form-group
+									.input-group
+										span.input-group-addon Phone Number:
+										input.form-control(type='text', value='#{userdata.phone}', readonly)
+					#medicines.tab-pane.fade
+					#appointments.tab-pane.fade
+						.col-sm-12
+							.col-sm-9
+								h2 Upcoming Appointments
+							.col-sm-3(class="p-t-b-h")
+								a(class="btn btn-success") Request New Appointment
+						.col-sm-12
+						naw-appointments-table
+						table(class="table table-striped")
+							thead
+								tr 
+									th Date
+									th Time
+									th Doctor
+									th Description
+							tbody
+								tr 
+									td 10/10/10
+									td 12:00PM
+									td Mr. Temp
+									td This is only a test
+						h2 Previous Appoints
+						.col-sm-12
+						table(class="table table-striped")
+							thead
+								tr 
+									th Date
+									th Time
+									th Doctor
+									th Description
+							tbody
+								tr 
+									td 10/10/10
+									td 12:00PM
+									td Mr. Temp
+									td This is only a test
+					#reports.tab-pane.fade

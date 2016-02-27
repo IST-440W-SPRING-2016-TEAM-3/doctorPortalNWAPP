@@ -1,0 +1,38 @@
+extends layout
+
+block content
+	.container
+		.row
+			h1 Register
+			.panel.panel-default
+				.panel-body
+					.col-sm-12
+						form(action='/register', method='post')
+							.form-horizontal
+								.form-group
+									label First Name
+										.input-group
+									input.form-control(type='text', placeholder='First Name', ng-model='userData.fname', name='fname', required='')
+								.form-group
+									label Last Name
+									.input-group
+									input.form-control(type='text', placeholder='Last Name', ng-model='userData.lname', name='lname', required='')
+								.form-group
+									select.form-control(name='useraccess', ng-model='userData.useraccess', required='')
+										option(value='')
+										option(value='100') User
+										option(value='400') Admin
+								.form-group
+									label Email
+									.input-group
+									input.form-control(type='email', placeholder='Email Address', ng-model='userData.email', name='email', required='')
+								.form-group
+									label Password
+									.input-group
+									input.form-control(type='password', placeholder='Password', ng-model='userData.pass', name='pass', required='')
+								.form-group
+									label Confirm Password
+									.input-group
+									input.form-control(type='password', placeholder='Password', ng-model='userData.passconf', name='passconf', required='')
+								.row.center-text
+									button.btn.btn-success.btn-block(type='submit') Register

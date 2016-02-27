@@ -1,0 +1,23 @@
+doctype html
+html(ng-app="clientportal")
+	head
+		title
+		link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/index.css')
+	body(ng-controller="main")
+		nav
+			ul.myNav
+				li
+					a(href='/') IST 440W Group 3
+				//- li
+				//- 	a(href='/Dashboard') User Dashboard
+				//- li
+				//- 	a(href='/logout') Logout
+
+		block content
+
+		script(src='javascripts/jquery.js')
+		script(src='javascripts/bootstrap.js')
+		script(src='javascripts/angular.js')
+		script(src='javascripts/clientportal.js')

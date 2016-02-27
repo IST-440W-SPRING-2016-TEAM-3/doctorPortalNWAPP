@@ -8,8 +8,8 @@
 	"main": "index.html",
 	"node-main": "./bin/www",
 	"window": {
-		"width": 800,
-		"height": 700,
+		"width": 1440,
+		"height": 900,
 		"toolbar": false
 	},
 	"dependencies": {

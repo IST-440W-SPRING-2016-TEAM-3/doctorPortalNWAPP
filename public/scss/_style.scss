@@ -1,16 +1,74 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 body {
-  background: url("../images/header.png");
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	/*padding: 50px;*/
+	/*background: url("../images/header.png");*/
+	font-family: "Lato", Helvetica, Arial, sans-serif;
+	/*"Lucida Grande"*/
 }
-
 a {
-  color: #00B7FF;
+	color: #00B7FF;
 }
-
 .p-t {
-  padding-top: 3em;
+	padding-top: 43px;
+	height: 100%;
+	/*background: linear-gradient(to bottom, #76D4F1, #fff);*/
 }
-
 .p-t-b-h {
-  padding-top: 1.8em;
+	padding-top: 1.8em;
 }
+/*Dashboard style*/
+body {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+.mainBox {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+}
+.userNav {
+	height: 100%;
+	z-index: 1;
+}
+.dashNav {
+	background: #0086D6;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	z-index: 100;
+	min-height: 100%;
+	box-shadow: 7px 0 7px rgba(0, 0, 0, 0.4);
+	li {
+		padding: 10px 0;
+		&:hover {
+			background: #003B5F;
+		}
+	}
+	a {
+		padding: 15px 30px;
+		display: block;
+		text-decoration: none;
+		color: white;
+	}
+	li a:hover {}
+}
+.userContent {
+	/*background: #f0f0f0;*/
+	margin-left: 10px;
+	padding-left: 10px;
+	position: relative;
+	flex-grow: 1;
+}
+/*#userprofile, #medications, #immunizations, #testresults, #history{
+  display:none;
+}
+#userprofile:target, #medications:target, #immunizations:target, #testresults:target, #history:target{
+  display:block;
+}*/

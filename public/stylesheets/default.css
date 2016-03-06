@@ -1,0 +1,189 @@
+body {
+  background: url("../images/header.png");
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+.p-t {
+  padding-top: 3em; }
+
+.p-t-b-h {
+  padding-top: 1.8em; }
+
+/*text styles*/
+h1 {
+  margin: 1em 0 1em 0;
+  font-size: 3.0em;
+  font-weight: 700; }
+
+h2 {
+  margin: 0 0 .5em 0;
+  font-size: 2.8em;
+  font-weight: 700;
+  line-height: 1.1em; }
+
+h3 {
+  margin: 0 0 .5em 0;
+  font-size: 2.8em;
+  font-weight: 700; }
+
+h4 {
+  margin: 0 0 1.5em 0;
+  font-size: 2.8em;
+  font-weight: 700; }
+
+p {
+  font-size: 16px; }
+
+/*index page style*/
+.mypage {
+  padding: 0px; }
+
+.myNav {
+  background-image: linear-gradient(black, rgba(0, 0, 0, 0.2));
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 0;
+  /*make it sticky */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1; }
+  .myNav a {
+    color: white;
+    text-decoration: none;
+    padding: 0 1em; }
+  .myNav li {
+    margin: 10px;
+    list-style-type: none; }
+    .myNav li:first-child {
+      margin-right: auto; }
+    .myNav li::after {
+      content: '';
+      display: block;
+      height: 3px;
+      width: 0; }
+    .myNav li:hover:after {
+      width: 100%;
+      background: #00B7FF;
+      transition: width .4s ease-out; }
+    .myNav li:first-child:hover:after {
+      margin-right: auto;
+      background: none; }
+
+/* underline effect on the nav items */
+/* don't want to underline the logo with blue line*/
+.myWrapper {
+  margin: auto;
+  width: 70%;
+  height: 100%; }
+
+.headerDiv {
+  width: 100%;
+  height: 100vh;
+  min-height: 800px;
+  background: url("../images/Header.jpg") top center no-repeat;
+  background-size: cover;
+  padding: 0;
+  display: inline-block;
+  box-shadow: 0px 1px 20px black;
+  text-shadow: 2px 2px 2px black; }
+  .headerDiv section {
+    width: 40%;
+    left: 55%;
+    top: 20%;
+    position: absolute;
+    color: white;
+    padding: 50px;
+    border-radius: 30px; }
+  .headerDiv p {
+    font-size: 2em; }
+  .headerDiv section a.btn {
+    color: white;
+    position: relative;
+    margin-top: 40px;
+    padding: 12px 40px;
+    border: 2px solid white;
+    font-size: 1.2em;
+    transition: .5s ease-in-out all; }
+    .headerDiv section a.btn:active {
+      top: 3px; }
+    .headerDiv section a.btn:hover {
+      color: white;
+      border: 2px solid #00B7FF;
+      transition: .5s ease-in-out all; }
+
+.mainInfo {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: auto;
+  margin-bottom: 50px; }
+
+.mainContent {
+  flex-flow: row wrap;
+  width: 30%;
+  text-align: center;
+  transition: all .5s ease-out; }
+  .mainContent:hover {
+    transform: scale(1.1);
+    transition: all .2s ease-out; }
+
+.secondContent {
+  width: 100%;
+  height: auto;
+  background: linear-gradient(to bottom right, rgba(202, 100, 29, 0.7), rgba(220, 66, 37, 0.7));
+  /*, url("../images/work-min.jpg") center no-repeat;*/
+  background-size: cover;
+  box-shadow: 0px -1px 20px grey, 0px 1px 20px grey;
+  margin-bottom: 25px;
+  color: white;
+  text-shadow: 2px 2px 2px black; }
+  .secondContent .myWrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center; }
+  .secondContent figure img {
+    max-width: 400px;
+    max-height: 200px;
+    width: 100%;
+    height: 100%; }
+
+.secondDiv {
+  width: 40%; }
+  .secondDiv p {
+    font-size: 1.2em; }
+
+.contactUS {
+  width: 100%;
+  height: 70vh; }
+
+.footer {
+  width: 100%;
+  height: 50vh;
+  background: #152442;
+  background-size: cover;
+  box-shadow: 0px -1px 20px black; }
+
+@media (max-width: 600px) {
+  .mainInfo, .secondContent .myWrapper {
+    flex-flow: column;
+    -webkit-flex-flow: column;
+    justify-content: center;
+    align-items: center; }
+
+  .mainContent, .secondDiv {
+    width: 100%; }
+
+  .headerDiv section {
+    width: 70%;
+    margin: auto;
+    position: relative;
+    left: 0;
+    top: 0;
+    text-align: center; } }
+
+/*# sourceMappingURL=default.css.map */

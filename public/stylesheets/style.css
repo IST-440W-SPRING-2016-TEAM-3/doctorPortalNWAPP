@@ -59,7 +59,6 @@ body{
 }
 .dashNav li:hover{
   background: #003B5F;
-  transform: scale(1.1);
 }
 .dashNav a {
   padding: 15px 30px;

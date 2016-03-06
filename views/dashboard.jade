@@ -2,83 +2,135 @@
 extends loggedinlayout
 
 block content
-	.p-t
-	.container
-		.row
-			.col-sm-12
-				.form-group
-					.col-sm-4
-						label.control-label Select a patient
-					.col-sm-8
-						select.form-control
-							option 1
-							option 2
-							option 3
-							option 4
-							option 5
-		.row
-			.col-sm-4
-				ul.nav.nav-pills.nav-stacked
-					li.active(role='presentation')
-						a(data-toggle="tab", href='#profilepage') User Profile
-					li(role='presentation')
-						a(data-toggle="tab", href='#medicines') Medicines
-					li(role='presentation')
-						a(data-toggle="tab", href='#appointments') Appointments
-					li(role='presentation')
-						a(data-toggle="tab", href='#reports') Reports
-			.col-sm-8
-				.tab-content
-					#profilepage.tab-pane.fade.in.active
-						.col-sm-12
-							.col-sm-8.col-sm-offset-2
-								.form-group
-									.input-group
-										span.input-group-addon Email:
-										input.form-control(type='text', value='#{userdata.email}', readonly)
-								.form-group
-									.input-group
-										span.input-group-addon Address:
-										input.form-control(type='text', value='#{userdata.address[0].streetaddress + " " + userdata.address[0].city + ", " + userdata.address[0].state+ " " + userdata.address[0].zip}', readonly)
-								.form-group
-									.input-group
-										span.input-group-addon Phone Number:
-										input.form-control(type='text', value='#{userdata.phone}', readonly)
-					#medicines.tab-pane.fade
-					#appointments.tab-pane.fade
-						.col-sm-12
-							.col-sm-9
-								h2 Upcoming Appointments
-							.col-sm-3(class="p-t-b-h")
-								a(class="btn btn-success") Request New Appointment
-						.col-sm-12
-						naw-appointments-table
-						table(class="table table-striped")
-							thead
-								tr 
-									th Date
-									th Time
-									th Doctor
-									th Description
-							tbody
-								tr 
-									td 10/10/10
-									td 12:00PM
-									td Mr. Temp
-									td This is only a test
-						h2 Previous Appoints
-						.col-sm-12
-						table(class="table table-striped")
-							thead
-								tr 
-									th Date
-									th Time
-									th Doctor
-									th Description
-							tbody
-								tr 
-									td 10/10/10
-									td 12:00PM
-									td Mr. Temp
-									td This is only a test
-					#reports.tab-pane.fade
+			.p-t
+				.mainBox
+					.userNav
+							ul.dashNav
+								li.active(role='presentation')
+									a(data-toggle="tab", href='#userprofile') User Profile
+								li(role='presentation')
+									a(data-toggle="tab", href='#medications') Medications 
+								li(role='presentation')
+									a(data-toggle="tab", href='#allergies') Allergies 
+								li(role='presentation')
+									a(data-toggle="tab", href='#immunizations') Immunizations
+								li(role='presentation')
+									a(data-toggle="tab", href='#testresults') Test Results
+								li(role='presentation')
+									a(data-toggle="tab", href='#history') History Summary
+					.col-sm-10		
+						.userContent.tab-content						
+								#userprofile.tab-pane.fade.in.active
+									h1 User Profile
+									//- p 123123123123
+									//- p 123123123
+									
+									form
+										.col-sm-9.row
+											.form-group.col-sm-4
+												label(for='myFirstName') First Name:
+												input#myFirstName.form-control(type='text', placeholder='First Name')
+											.form-group.col-sm-4
+												label(for='myFirstName') Last Name:
+												input#myLastName.form-control(type='text', placeholder='Last Name')
+												
+										
+										.col-sm-9
+											//- .col-sm-4
+												label(for='myDOB') DOB:
+												.form-group.row
+													.col-sm-3
+														input#myDOB.form-control(type='number', placeholder='Year')
+													.col-sm-3
+														input#myDOB.form-control(type='text', placeholder='Month')
+													.col-sm-3
+														input#myDOB.form-control(type='number', placeholder='Day')
+													
+										.col-sm-9			
+												label(for='myEmail') Email:
+												input#myEmail.form-control(type='text', placeholder='Enter here')
+		
+												label(for='myPhone') Phone:
+												input#myPhone.form-control(type='number', placeholder='Enter here')
+												
+												label(for='myAddress') Street Address:
+												input#myAddress.form-control(type='text', placeholder='Enter here')
+												
+												label(for='myAddress') City:
+												input#myCity.form-control(type='text', placeholder='Enter here')
+												
+												label(for='myStates') State
+													select#myStates.form-control(name='state', placeholder='Select State')
+														option(value='') Select State
+														option(value='AK') Alaska
+														option(value='AL') Alabama
+														option(value='AR') Arkansas
+														option(value='AZ') Arizona
+														option(value='CA') California
+														option(value='CO') Colorado
+														option(value='CT') Connecticut
+														option(value='DC') District of Columbia
+														option(value='DE') Delaware
+														option(value='FL') Florida
+														option(value='GA') Georgia
+														option(value='HI') Hawaii
+														option(value='IA') Iowa
+														option(value='ID') Idaho
+														option(value='IL') Illinois
+														option(value='IN') Indiana
+														option(value='KS') Kansas
+														option(value='KY') Kentucky
+														option(value='LA') Louisiana
+														option(value='MA') Massachusetts
+														option(value='MD') Maryland
+														option(value='ME') Maine
+														option(value='MI') Michigan
+														option(value='MN') Minnesota
+														option(value='MO') Missouri
+														option(value='MS') Mississippi
+														option(value='MT') Montana
+														option(value='NC') North Carolina
+														option(value='ND') North Dakota
+														option(value='NE') Nebraska
+														option(value='NH') New Hampshire
+														option(value='NJ') New Jersey
+														option(value='NM') New Mexico
+														option(value='NV') Nevada
+														option(value='NY') New York
+														option(value='OH') Ohio
+														option(value='OK') Oklahoma
+														option(value='OR') Oregon
+														option(value='PA') Pennsylvania
+														option(value='PR') Puerto Rico
+														option(value='RI') Rhode Island
+														option(value='SC') South Carolina
+														option(value='SD') South Dakota
+														option(value='TN') Tennessee
+														option(value='TX') Texas
+														option(value='UT') Utah
+														option(value='VA') Virginia
+														option(value='VT') Vermont
+														option(value='WA') Washington
+														option(value='WI') Wisconsin
+														option(value='WV') West Virginia
+														option(value='WY') Wyoming
+											
+													label(for='myZip') Zip:
+													input#myZip.form-control(type='number', placeholder='Zip')
+										.col-sm-6		
+											.form-group.row.col-sm-3		
+												input.btn.btn-primary.btn-lg(type='submit', value='Submit')
+											.form-group.row.col-sm-3
+												input.btn.btn-primary.btn-lg(type='submit', value='Update')		
+												
+																								
+								#medications.tab-pane.fade
+									h1 Medications
+								#allergies.tab-pane.fade
+									h1 Allergies
+								#immunizations.tab-pane.fade
+									h1 Immunizations
+								#testresults.tab-pane.fade
+									h1 Test Results
+								#history.tab-pane.fade
+									h1 History

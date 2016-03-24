@@ -8,11 +8,6 @@ body {
 a {
   color: #00B7FF; }
 
-.p-t {
-  padding-top: 43px;
-  height: 100%;
-  /*background: linear-gradient(to bottom, #76D4F1, #fff);*/ }
-
 .p-t-b-h {
   padding-top: 1.8em; }
 
@@ -22,7 +17,7 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
-  position: absolute; }
+  position: relative; }
 
 .mainBox {
   width: 100%;
@@ -31,43 +26,28 @@ body {
   flex-flow: row;
   justify-content: flex-start;
   align-items: stretch;
-  align-content: stretch; }
+  padding-top: 43px; }
+  .mainBox .userNav {
+    background: #0086D6;
+    box-shadow: 7px 0 7px rgba(0, 0, 0, 0.4); }
+    .mainBox .userNav .dashNav {
+      list-style-type: none;
+      padding: 0;
+      margin: 0; }
+      .mainBox .userNav .dashNav li {
+        padding: 10px 0; }
+        .mainBox .userNav .dashNav li:hover {
+          background: #003B5F; }
+      .mainBox .userNav .dashNav a {
+        padding: 15px 30px;
+        display: block;
+        text-decoration: none;
+        color: white; }
+  .mainBox .userContent {
+    flex-grow: 1;
+    margin-left: 10px;
+    padding-left: 10px; }
 
-.userNav {
-  height: 100%;
-  z-index: 1; }
-
-.dashNav {
-  background: #0086D6;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  z-index: 100;
-  min-height: 100%;
-  box-shadow: 7px 0 7px rgba(0, 0, 0, 0.4); }
-  .dashNav li {
-    padding: 10px 0; }
-    .dashNav li:hover {
-      background: #003B5F; }
-  .dashNav a {
-    padding: 15px 30px;
-    display: block;
-    text-decoration: none;
-    color: white; }
-
-.userContent {
-  /*background: #f0f0f0;*/
-  margin-left: 10px;
-  padding-left: 10px;
-  position: relative;
-  flex-grow: 1; }
-
-/*#userprofile, #medications, #immunizations, #testresults, #history{
-  display:none;
-}
-#userprofile:target, #medications:target, #immunizations:target, #testresults:target, #history:target{
-  display:block;
-}*/
 /*text styles*/
 h1 {
   margin: 1em 0;
@@ -106,8 +86,7 @@ p {
   /*make it sticky */
   position: fixed;
   top: 0;
-  width: 100%;
-  box-shadow: 0 7px 5px rgba(0, 0, 0, 0.4); }
+  width: 100%; }
   .myNav a {
     color: white;
     text-decoration: none;

@@ -33,6 +33,7 @@ p {
 	flex-flow: row wrap;
 	justify-content: space-between;
 	margin: 0;
+	z-index: 9999;
 	/*make it sticky */
 	position: fixed;
 	top: 0;

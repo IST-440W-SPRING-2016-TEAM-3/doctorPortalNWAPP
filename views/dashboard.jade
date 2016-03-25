@@ -23,67 +23,67 @@ block content
 				h1 Create User
 				//- p 123123123123
 				//- p 123123123
-				.myForm
-					.mySmallBlock
-						label.myLabel First Name *
-						input.mySmallInput 
-					.mySmallBlock
-						label.myLabel Last Name *
-						input.mySmallInput 
+				//.myForm
+				.mySmallBlock
+					label.myLabel First Name *
+					input.mySmallInput 
+				.mySmallBlock
+					label.myLabel Last Name *
+					input.mySmallInput 
 
-					.myClear
-					.mySmallBlock
-						label.myLabel Email *
-						input.mySmallInput(type='email')  
-					.mySmallBlock
-						label.myLabel Phone
-						input.mySmallInput(type='number')
+				.myClear
+				.mySmallBlock
+					label.myLabel Email *
+					input.mySmallInput(type='email')  
+				.mySmallBlock
+					label.myLabel Phone
+					input.mySmallInput(type='number')
 
-					.myClear
-					.mySmallBlock
-						label.myLabel Street Address
-						input.mySmallInput
-					.mySmallBlock
-						label.myLabel City
-						input.mySmallInput(type='number')
+				.myClear
+				.mySmallBlock
+					label.myLabel Street Address
+					input.mySmallInput
+				.mySmallBlock
+					label.myLabel City
+					input.mySmallInput(type='number')
 
-					.myClear
-					.myXSmallBlock
-						label.myLabel Country
-						input.mySmallInput
-					.myXSmallBlock
-						label.myLabel State
-						input.mySmallInput
-					.myXSmallBlock
-						label.myLabel ZIP
-						input.mySmallInput
+				.myClear
+				.myXSmallBlock
+					label.myLabel Country
+					input.mySmallInput
+				.myXSmallBlock
+					label.myLabel State
+					input.mySmallInput
+				.myXSmallBlock
+					label.myLabel ZIP
+					input.mySmallInput
 
-					.myClear
-					.myXSmallBlock
-						label.myLabel Gender
-						input.myRadio(type='radio', name='gender', value='male')
-						| Male
-						input.myRadio(type='radio', name='gender', value='male')
-						| Female
-						input.myRadio(type='radio', name='gender', value='male')
-						| Other
-					.myXSmallBlock
-						label.myLabel Height
-						input.mySmallInput
-					.myXSmallBlock
-						label.myLabel Weight
-						input.mySmallInput
+				.myClear
+				.myXSmallBlock
+					label.myLabel Gender
+					input.myRadio(type='radio', name='gender', value='male')
+					| Male
+					input.myRadio(type='radio', name='gender', value='male')
+					| Female
+					input.myRadio(type='radio', name='gender', value='male')
+					| Other
+				.myXSmallBlock
+					label.myLabel Height
+					input.mySmallInput
+				.myXSmallBlock
+					label.myLabel Weight
+					input.mySmallInput
 
-					.myClear
-					.mySmallBlock
-						label.myLabel Primary Insurance
-						input.mySmallInput
-					.mySmallBlock
-						label.myLabel Primary Pharmacy
-						input.mySmallInput
-					.myMediumBlock
-						label.myLabel Comment
-						input.myFullInput								
+				.myClear
+				.mySmallBlock
+					label.myLabel Primary Insurance
+					input.mySmallInput
+				.mySmallBlock
+					label.myLabel Primary Pharmacy
+					input.mySmallInput
+				.myMediumBlock
+					label.myLabel Comment
+					input.myFullInput								
 
 
 
@@ -92,14 +92,90 @@ block content
 				.testMain
 					.testUrine
 						h1 Urine Tests
+						
+						.mySmallBlock
+							label.myLabel maybe pH level? 1-14
+							input.mySmallInput
+							//figcaption maybe describing the shits?
+						.myClear		
+						.mySmallBlock
+							label.myLabel Glucose?
+							input.mySmallInput
+							//figcaption shits is described?								
+						.myClear		
+						.mySmallBlock
+							label.myLabel Ketones? y/n
+							input.mySmallInput
+							//figcaption describes the shits									
+						.myClear		
+						.mySmallBlock
+							label.myLabel Gravity? 1.005 - 1.030
+							input.mySmallInput
+							//figcaption this is a test
+																
+							//end urinetests			
+					
 					.testBlood
 						h1 Blood Tests
+						
+						.mySmallBlock
+							label.myLabel Label shit
+							input.mySmallInput
+						.myClear		
+						.mySmallBlock
+							label.myLabel Label shit
+							input.mySmallInput								
+						.myClear		
+						.mySmallBlock
+							label.myLabel Label shit
+							input.mySmallInput									
+						.myClear		
+						.mySmallBlock
+							label.myLabel Label shit
+							input.mySmallInput						
+						//end blood tests
+						
 					.testImaging
 						h1 Imaging Tests
+						
+						.mySmallBlock
+							label.myLabel Label shit
+							input.mySmallInput
+						.myClear		
+						.mySmallBlock
+							label.myLabel Label shit
+							input.mySmallInput								
+						.myClear		
+						.mySmallBlock
+							label.myLabel Label shit
+							input.mySmallInput									
+						.myClear		
+						.mySmallBlock
+							label.myLabel Label shit
+							input.mySmallInput
+						//ennd test Imaging
+													
 					.testEndoscopy
 						h1 Endoscopy Tests
 
-
+						.mySmallBlock
+							label.myLabel Label shit
+							input.mySmallInput
+						.myClear		
+						.mySmallBlock
+							label.myLabel Label shit
+							input.mySmallInput								
+						.myClear		
+						.mySmallBlock
+							label.myLabel Label shit
+							input.mySmallInput									
+						.myClear		
+						.mySmallBlock
+							label.myLabel Label shit
+							input.mySmallInput
+							
+						//end test endoscopy
+							
 			#medications.tab-pane.fade
 				h1 Medications
 			#allergies.tab-pane.fade

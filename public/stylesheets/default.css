@@ -21,6 +21,7 @@ body {
 
 .mainBox {
   width: 100%;
+  min-height: 100vh;
   height: 100%;
   display: flex;
   flex-flow: row;
@@ -45,8 +46,8 @@ body {
         color: white; }
   .mainBox .userContent {
     flex-grow: 1;
-    margin-left: 10px;
-    padding-left: 10px; }
+    margin: 0px 10px;
+    padding: 0px 10px; }
 
 /*text styles*/
 h1 {
@@ -83,6 +84,7 @@ p {
   flex-flow: row wrap;
   justify-content: space-between;
   margin: 0;
+  z-index: 9999;
   /*make it sticky */
   position: fixed;
   top: 0;
@@ -223,77 +225,88 @@ p {
     left: 0;
     top: 0;
     text-align: center; } }
-.myForm {
+.myXSmallBlock {
+  width: 20%;
+  display: inline-block;
+  position: relative;
+  margin-right: 1%;
+  float: left; }
+
+.mySmallBlock {
+  width: 30%;
+  display: block;
+  position: relative;
+  margin-right: 4%;
+  float: left; }
+
+.myComment {
   width: 100%; }
-  .myForm .myXSmallBlock {
-    width: 20%;
-    display: inline-block;
-    position: relative;
-    margin-right: 1%;
-    float: left; }
-  .myForm .mySmallBlock {
-    width: 30%;
-    display: block;
-    position: relative;
-    margin-right: 4%;
-    float: left; }
-  .myForm .myComment {
-    width: 100%; }
-  .myForm .myMediumBlock {
-    width: 64%;
-    display: block;
-    position: relative;
-    margin-right: 4%;
-    float: left; }
-  .myForm .myLabel {
-    width: 100%;
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #555;
-    margin-bottom: 10px;
-    cursor: pointer; }
-  .myForm .mySmallInput {
-    width: 80%;
-    display: block;
-    height: 38px;
-    padding: 8px 10px;
-    margin-bottom: 5px;
-    font-size: 15px;
-    line-height: 1.4;
-    color: black;
-    border: 2px solid #DDD;
-    border-radius: 4px; }
-  .myForm .myFullInput {
-    width: 91%;
-    display: block;
-    height: 38px;
-    padding: 8px 10px;
-    margin-bottom: 5px;
-    font-size: 15px;
-    line-height: 1.4;
-    color: black;
-    border: 2px solid #DDD;
-    border-radius: 4px;
-    height: 200px; }
-  .myForm .myRadio {
-    height: 20px;
-    display: inline;
-    width: 10%; }
-  .myForm .myClear {
-    clear: both;
-    display: block;
-    font-size: 0px;
-    height: 0px;
-    line-height: 0;
-    width: 100%;
-    overflow: hidden; }
-  .myForm .mySmallInput:hover, .myForm .myFullInput:hover {
-    border: 2px solid #0086D6; }
+
+.myMediumBlock {
+  width: 64%;
+  display: block;
+  position: relative;
+  margin-right: 4%;
+  float: left; }
+
+.myLabel {
+  width: 100%;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #555;
+  margin-bottom: 5px;
+  cursor: pointer; }
+
+.mySmallInput {
+  width: 80%;
+  display: block;
+  height: 38px;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: black;
+  border: 2px solid #DDD;
+  border-radius: 4px; }
+
+.myFullInput {
+  width: 91%;
+  display: block;
+  height: 38px;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: black;
+  border: 2px solid #DDD;
+  border-radius: 4px;
+  height: 200px; }
+
+.myRadio {
+  height: 20px;
+  display: inline;
+  width: 10%; }
+
+.myClear {
+  clear: both;
+  display: block;
+  font-size: 0px;
+  height: 0px;
+  line-height: 0;
+  width: 100%;
+  overflow: hidden; }
+
+.mySmallInput:hover, .myFullInput:hover {
+  border: 2px solid #0086D6; }
+
+label, input {
+  z-index: 1; }
 
 .testMain {
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start; }
@@ -304,13 +317,7 @@ p {
     .testMain .testUrine h1, .testMain .testBlood h1, .testMain .testImaging h1, .testMain .testEndoscopy h1 {
       text-align: center;
       margin: 0px; }
-  .testMain .testUrine {
-    background: #f2615c; }
-  .testMain .testBlood {
-    background: lightgreen; }
-  .testMain .testImaging {
-    background: lightblue; }
-  .testMain .testEndoscopy {
-    background: #e4fb53; }
+  .testMain figcaption {
+    font-style: italic; }
 
 /*# sourceMappingURL=default.css.map */

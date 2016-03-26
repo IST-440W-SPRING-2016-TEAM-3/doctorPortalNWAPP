@@ -8,11 +8,6 @@ body {
 a {
   color: #00B7FF; }
 
-.p-t {
-  padding-top: 43px;
-  height: 100%;
-  /*background: linear-gradient(to bottom, #76D4F1, #fff);*/ }
-
 .p-t-b-h {
   padding-top: 1.8em; }
 
@@ -22,52 +17,38 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
-  position: absolute; }
+  position: relative; }
 
 .mainBox {
   width: 100%;
+  min-height: 100vh;
   height: 100%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row;
   justify-content: flex-start;
   align-items: stretch;
-  align-content: stretch; }
+  padding-top: 43px; }
+  .mainBox .userNav {
+    background: #0086D6;
+    box-shadow: 7px 0 7px rgba(0, 0, 0, 0.4); }
+    .mainBox .userNav .dashNav {
+      list-style-type: none;
+      padding: 0;
+      margin: 0; }
+      .mainBox .userNav .dashNav li {
+        padding: 10px 0; }
+        .mainBox .userNav .dashNav li:hover {
+          background: #003B5F; }
+      .mainBox .userNav .dashNav a {
+        padding: 15px 30px;
+        display: block;
+        text-decoration: none;
+        color: white; }
+  .mainBox .userContent {
+    flex-grow: 1;
+    margin: 0px 10px;
+    padding: 0px 10px; }
 
-.userNav {
-  height: 100%;
-  z-index: 1; }
-
-.dashNav {
-  background: #0086D6;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  z-index: 100;
-  min-height: 100%;
-  box-shadow: 7px 0 7px rgba(0, 0, 0, 0.4); }
-  .dashNav li {
-    padding: 10px 0; }
-    .dashNav li:hover {
-      background: #003B5F; }
-  .dashNav a {
-    padding: 15px 30px;
-    display: block;
-    text-decoration: none;
-    color: white; }
-
-.userContent {
-  /*background: #f0f0f0;*/
-  margin-left: 10px;
-  padding-left: 10px;
-  position: relative;
-  flex-grow: 1; }
-
-/*#userprofile, #medications, #immunizations, #testresults, #history{
-  display:none;
-}
-#userprofile:target, #medications:target, #immunizations:target, #testresults:target, #history:target{
-  display:block;
-}*/
 /*text styles*/
 h1 {
   margin: 1em 0;
@@ -103,11 +84,11 @@ p {
   flex-flow: row wrap;
   justify-content: space-between;
   margin: 0;
+  z-index: 9999;
   /*make it sticky */
   position: fixed;
   top: 0;
-  width: 100%;
-  box-shadow: 0 7px 5px rgba(0, 0, 0, 0.4); }
+  width: 100%; }
   .myNav a {
     color: white;
     text-decoration: none;
@@ -244,5 +225,99 @@ p {
     left: 0;
     top: 0;
     text-align: center; } }
+.myXSmallBlock {
+  width: 20%;
+  display: inline-block;
+  position: relative;
+  margin-right: 1%;
+  float: left; }
+
+.mySmallBlock {
+  width: 30%;
+  display: block;
+  position: relative;
+  margin-right: 4%;
+  float: left; }
+
+.myComment {
+  width: 100%; }
+
+.myMediumBlock {
+  width: 64%;
+  display: block;
+  position: relative;
+  margin-right: 4%;
+  float: left; }
+
+.myLabel {
+  width: 100%;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #555;
+  margin-bottom: 5px;
+  cursor: pointer; }
+
+.mySmallInput {
+  width: 80%;
+  display: block;
+  height: 38px;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: black;
+  border: 2px solid #DDD;
+  border-radius: 4px; }
+
+.myFullInput {
+  width: 91%;
+  display: block;
+  height: 38px;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: black;
+  border: 2px solid #DDD;
+  border-radius: 4px;
+  height: 200px; }
+
+.myRadio {
+  height: 20px;
+  display: inline;
+  width: 10%; }
+
+.myClear {
+  clear: both;
+  display: block;
+  font-size: 0px;
+  height: 0px;
+  line-height: 0;
+  width: 100%;
+  overflow: hidden; }
+
+.mySmallInput:hover, .myFullInput:hover {
+  border: 2px solid #0086D6; }
+
+label, input {
+  z-index: 1; }
+
+.testMain {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start; }
+  .testMain .testUrine, .testMain .testBlood, .testMain .testImaging, .testMain .testEndoscopy {
+    width: 50%;
+    min-height: 350px;
+    height: auto; }
+    .testMain .testUrine h1, .testMain .testBlood h1, .testMain .testImaging h1, .testMain .testEndoscopy h1 {
+      text-align: center;
+      margin: 0px; }
+  .testMain figcaption {
+    font-style: italic; }
 
 /*# sourceMappingURL=default.css.map */

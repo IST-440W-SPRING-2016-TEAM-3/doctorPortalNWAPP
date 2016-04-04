@@ -254,7 +254,6 @@ p {
   display: inline-block;
   font-size: 13px;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: 1px;
   color: #555;
   margin-bottom: 5px;
@@ -305,19 +304,37 @@ p {
 label, input {
   z-index: 1; }
 
-.testMain {
+a.mySubmit {
+  color: white;
+  text-transform: uppercase;
+  padding: 12px 40px;
+  background-color: #0086D6;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block; }
+
+.testMain, .medMain {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start; }
-  .testMain .testUrine, .testMain .testBlood, .testMain .testImaging, .testMain .testEndoscopy {
+  .testMain .testUrine, .medMain .testUrine, .testMain .testBlood, .medMain .testBlood, .testMain .testImaging, .medMain .testImaging, .testMain .testEndoscopy, .medMain .testEndoscopy {
     width: 50%;
     min-height: 350px;
     height: auto; }
-    .testMain .testUrine h1, .testMain .testBlood h1, .testMain .testImaging h1, .testMain .testEndoscopy h1 {
+    .testMain .testUrine h1, .medMain .testUrine h1, .testMain .testBlood h1, .medMain .testBlood h1, .testMain .testImaging h1, .medMain .testImaging h1, .testMain .testEndoscopy h1, .medMain .testEndoscopy h1 {
       text-align: center;
       margin: 0px; }
-  .testMain figcaption {
+  .testMain figcaption, .medMain figcaption {
     font-style: italic; }
+
+.medMain .medBlock {
+  width: 33%;
+  min-height: 300px;
+  height: auto;
+  background-color: yellow; }
 
 /*# sourceMappingURL=default.css.map */

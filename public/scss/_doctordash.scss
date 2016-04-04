@@ -32,7 +32,7 @@
       display: inline-block;
       font-size: 13px;
       font-weight: 700;
-      text-transform: uppercase;
+      //text-transform: uppercase;
       letter-spacing: 1px;
       color: #555;
       margin-bottom: 5px;
@@ -87,6 +87,18 @@
 label, input{
   z-index: 1; //shit used to go on top of the nav bar when scroll, made the nav higher z-index;
 }
+a.mySubmit{
+    color: white;
+    text-transform: uppercase;
+		padding: 12px 40px;
+		background-color: #0086D6;
+    border-radius: 5px;
+		font-size: 13px;
+    margin-top: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
 
 //TEST RESULTS
 .testMain{
@@ -119,4 +131,14 @@ label, input{
     figcaption{
       font-style: italic;
     }
+}
+.medMain{
+  @extend .testMain;
+
+  .medBlock{
+    width: 33%;
+    min-height: 300px;
+    height: auto;
+    background-color: yellow;
+  }
 }

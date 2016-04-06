@@ -33,11 +33,12 @@ p {
 	flex-flow: row wrap;
 	justify-content: space-between;
 	margin: 0;
+	z-index: 9999;
 	/*make it sticky */
 	position: fixed;
 	top: 0;
 	width: 100%;
-	box-shadow: 0 7px 5px rgba(0, 0, 0, 0.4);
+	//box-shadow: 0 7px 5px rgba(0, 0, 0, 0.4);
 	a {
 		color: white;
 		text-decoration: none;

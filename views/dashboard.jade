@@ -157,7 +157,10 @@ block content
 						h1 Endoscopy Tests
 
 						.mySmallBlock
-							label.myLabel Blood Pressure systolic/diastolic
+							label.myLabel Blood Pressure
+							label.myLabel Systolic
+							input.mySmallInput
+							label.myLabel Diastolic
 							input.mySmallInput
 						.myClear		
 						.mySmallBlock
@@ -177,15 +180,76 @@ block content
 							
 			#medications.tab-pane.fade
 				h1 Medications
-					.medMain
-						.medBlock
-					
-				
-				
-				
+					.myMain
+						.myBlock
+							.myMediumBlock
+								label.myLabel Medication Name
+								input.mySmallInput
+							
+							.myClear
+							.myMediumBlock
+								label.myLabel Dosage (mg,m,etc)
+								input.mySmallInput
+							
+							.myClear
+							.myMediumBlock
+								label.myLabel Frequency (twice a day/ every 2 hours etc.)
+								input.mySmallInput
+							
+							.myClear
+							.mySmallBlock
+								label.myLabel Date start
+								input.mySmallInput
+							.mySmallBlock
+								label.myLabel Date End
+								input.mySmallInput
+							.myClear
+							.myMediumBlock
+								label.myLabel Description
+								input.myFullInput
+								a.mySubmit Submit	
+												
 			#allergies.tab-pane.fade
 				h1 Allergies
+				.myMain
+					.myBlock
+						.myMediumBlock
+							label.myLabel Allergy Name
+							input.mySmallInput
+						
+						.myClear
+						.mySmallBlock
+							label.myLabel Date start
+							input.mySmallInput
+						.mySmallBlock
+							label.myLabel Date End
+							input.mySmallInput
+						.myClear
+						.myMediumBlock
+							label.myLabel Description
+							input.myFullInput
+							a.mySubmit Submit
+								
 			#immunizations.tab-pane.fade
 				h1 Immunizations
+				.myMain
+					.myBlock
+						.myMediumBlock
+							label.myLabel Immunization Name
+							input.mySmallInput
+						
+						.myClear
+						.mySmallBlock
+							label.myLabel Date Recorded
+							input.mySmallInput
+						.mySmallBlock
+							label.myLabel Date Expires
+							input.mySmallInput
+						.myClear
+						.myMediumBlock
+							label.myLabel Description
+							input.myFullInput
+							a.mySubmit Submit	
+							
 			#history.tab-pane.fade
 				h1 History

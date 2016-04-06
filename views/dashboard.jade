@@ -17,7 +17,6 @@ block content
 					a(data-toggle="tab", href='#immunizations') Immunizations
 				li(role='presentation')
 					a(data-toggle="tab", href='#history') History Summary
-
 		.userContent.tab-content						
 			#createuserprofile.tab-pane.fade.in.active
 				h1 Create User
@@ -26,44 +25,41 @@ block content
 				//.myForm
 				.mySmallBlock
 					label.myLabel First Name *
-					input.mySmallInput 
+					input.mySmallInput(ng-model="user.firstname")
 				.mySmallBlock
 					label.myLabel Last Name *
-					input.mySmallInput 
-
+					input.mySmallInput(ng-model="user.lastname")
 				.myClear
 				.mySmallBlock
 					label.myLabel Email *
-					input.mySmallInput(type='email')  
+					input.mySmallInput(type='email', ng-model="user.email")  
 				.mySmallBlock
 					label.myLabel Phone
-					input.mySmallInput(type='number')
-
+					input.mySmallInput(type='number', ng-model="user.phone")
 				.myClear
 				.mySmallBlock
 					label.myLabel Street Address
-					input.mySmallInput
+					input.mySmallInput(ng-model="user.street")
 				.mySmallBlock
 					label.myLabel City
-					input.mySmallInput(type='number')
-
+					input.mySmallInput(ng-model="user.city")
 				.myClear
 				.myXSmallBlock
 					label.myLabel Country
-					input.mySmallInput
+					input.mySmallInput(ng-model="user.country")
 				.myXSmallBlock
 					label.myLabel State
-					input.mySmallInput
+					input.mySmallInput(ng-model="user.state")
 				.myXSmallBlock
 					label.myLabel ZIP
-					input.mySmallInput
+					input.mySmallInput(ng-model="user.zip")
 
 				.myClear
 				.myXSmallBlock
 					label.myLabel Gender
-					input.myRadio(type='radio', name='gender', value='male')
+					input.myRadio(type='radio', name='gender', value='male', ng-model="gender")
 					| Male
-					input.myRadio(type='radio', name='gender', value='male')
+					input.myRadio(type='radio', name='gender', value='male', ng-model="gender")
 					| Female
 					input.myRadio(type='radio', name='gender', value='male')
 					| Other
@@ -90,7 +86,7 @@ block content
 				.testMain
 					.testUrine
 						h1 Urine Tests
-						
+
 						.mySmallBlock
 							label.myLabel maybe pH level? 1-14
 							input.mySmallInput
@@ -110,12 +106,12 @@ block content
 							label.myLabel Gravity? 1.005 - 1.030
 							input.mySmallInput
 							//figcaption this is a test
-							a.mySubmit Submit									
+							a.mySubmit Submit
 							//end urinetests			
-					
+
 					.testBlood
 						h1 Blood Tests
-						
+
 						.mySmallBlock
 							label.myLabel Cholesterol mg/dL
 							input.mySmallInput
@@ -132,10 +128,10 @@ block content
 							label.myLabel CRP level mg/L
 							input.mySmallInput						
 						//end blood tests
-						
+
 					.testImaging
 						h1 Imaging Tests
-						
+
 						.mySmallBlock
 							label.myLabel Label shit
 							input.mySmallInput
@@ -152,7 +148,7 @@ block content
 							label.myLabel Label shit
 							input.mySmallInput
 						//ennd test Imaging
-													
+
 					.testEndoscopy
 						h1 Endoscopy Tests
 
@@ -174,82 +170,82 @@ block content
 						.mySmallBlock
 							label.myLabel Label shit
 							input.mySmallInput
-							
-							
-						//end test endoscopy
-							
+							//end test endoscopy
+
 			#medications.tab-pane.fade
 				h1 Medications
 					.myMain
-						.myBlock
+						.form-group(data-ng-repeat='choice in medicationChoices')
+							.myBlock.medication
+								.myMediumBlock
+									label.myLabel Medication Name
+									input.mySmallInput
+
+								.myClear
+								.myMediumBlock
+									label.myLabel Dosage (mg,m,etc)
+									input.mySmallInput
+
+								.myClear
+								.myMediumBlock
+									label.myLabel Frequency (twice a day/ every 2 hours etc.)
+									input.mySmallInput
+
+								.myClear
+								.mySmallBlock
+									label.myLabel Date start
+									input.mySmallInput
+								.mySmallBlock
+									label.myLabel Date End
+									input.mySmallInput
+								.myClear
+								.myMediumBlock
+									label.myLabel Description
+									input.myFullInput
+									a.mySubmit(ng-show='showAddMedicationChoice(choice)', ng-click='addNewMedicationChoice()') Add another choice
+					a.mySubmit.pull-right Submit
+
+			#allergies.tab-pane.fade
+				h1 Allergies
+				.myMain
+					.form-group(data-ng-repeat='choice in allergyChoices')
+						.myBlock.allergy
 							.myMediumBlock
-								label.myLabel Medication Name
-								input.mySmallInput
-							
-							.myClear
-							.myMediumBlock
-								label.myLabel Dosage (mg,m,etc)
-								input.mySmallInput
-							
-							.myClear
-							.myMediumBlock
-								label.myLabel Frequency (twice a day/ every 2 hours etc.)
-								input.mySmallInput
-							
+								label.myLabel Allergy Name
+								input.mySmallInput(ng-model="choice.name")
 							.myClear
 							.mySmallBlock
-								label.myLabel Date start
+								label.control-label.myLabel Date start
+								input(class="datepicker1 mySmallInput form-control",type='text', ng-model="choice.datepicker1")
+							.mySmallBlock
+								label.control-label.myLabel Date End
+								input.form-control.mySmallInput.datepicker2(type='text', ng-model="choice.datepicker2")
+							.myClear
+							.myMediumBlock
+								label.myLabel Description
+								input.myFullInput(ng-model="choice.description")
+							a.mySubmit(ng-show='showAddAllergiesChoice(choice)', ng-click='addNewAllergiesChoice()') Add another choice
+				a.mySubmit.pull-right Submit
+			#immunizations.tab-pane.fade
+				h1 Immunizations
+				.myMain
+					.form-group(data-ng-repeat='choice in immunizationChoices')
+						.myBlock.immunization
+							.myMediumBlock
+								label.myLabel Immunization Name
+								input.mySmallInput
+							.myClear
+							.mySmallBlock
+								label.myLabel Date Recorded
 								input.mySmallInput
 							.mySmallBlock
-								label.myLabel Date End
+								label.myLabel Date Expires
 								input.mySmallInput
 							.myClear
 							.myMediumBlock
 								label.myLabel Description
 								input.myFullInput
-								a.mySubmit Submit	
-												
-			#allergies.tab-pane.fade
-				h1 Allergies
-				.myMain
-					.myBlock
-						.myMediumBlock
-							label.myLabel Allergy Name
-							input.mySmallInput
-						
-						.myClear
-						.mySmallBlock
-							label.myLabel Date start
-							input.mySmallInput
-						.mySmallBlock
-							label.myLabel Date End
-							input.mySmallInput
-						.myClear
-						.myMediumBlock
-							label.myLabel Description
-							input.myFullInput
-							a.mySubmit Submit
-								
-			#immunizations.tab-pane.fade
-				h1 Immunizations
-				.myMain
-					.myBlock
-						.myMediumBlock
-							label.myLabel Immunization Name
-							input.mySmallInput
-						
-						.myClear
-						.mySmallBlock
-							label.myLabel Date Recorded
-							input.mySmallInput
-						.mySmallBlock
-							label.myLabel Date Expires
-							input.mySmallInput
-						.myClear
-						.myMediumBlock
-							label.myLabel Description
-							input.myFullInput
-							a.mySubmit Submit	
-							
+							a.mySubmit(ng-show='showAddImmunizationChoice(choice)', ng-click='addNewImmunizationChoice()') Add another choice
+				a.mySubmit.pull-right Submit
 			#history.tab-pane.fade
 				h1 History

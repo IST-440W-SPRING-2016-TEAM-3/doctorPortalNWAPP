@@ -292,16 +292,18 @@ p {
 .myClear {
   clear: both;
   display: block;
-  font-size: 0px;
-  height: 0px;
+  font-size: 0;
+  height: 0;
   line-height: 0;
   width: 100%;
   overflow: hidden; }
 
-.mySmallInput:hover, .myFullInput:hover {
+.myFullInput:hover,
+.mySmallInput:hover {
   border: 2px solid #0086D6; }
 
-label, input {
+input,
+label {
   z-index: 1; }
 
 a.mySubmit {
@@ -321,20 +323,35 @@ a.mySubmit {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start; }
-  .testMain .testUrine, .myMain .testUrine, .testMain .testBlood, .myMain .testBlood, .testMain .testImaging, .myMain .testImaging, .testMain .testEndoscopy, .myMain .testEndoscopy {
+  .testMain .testBlood, .myMain .testBlood,
+  .testMain .testEndoscopy,
+  .myMain .testEndoscopy,
+  .testMain .testImaging,
+  .myMain .testImaging,
+  .testMain .testUrine,
+  .myMain .testUrine {
     width: 50%;
     min-height: 350px;
     height: auto; }
-    .testMain .testUrine h1, .myMain .testUrine h1, .testMain .testBlood h1, .myMain .testBlood h1, .testMain .testImaging h1, .myMain .testImaging h1, .testMain .testEndoscopy h1, .myMain .testEndoscopy h1 {
+    .testMain .testBlood h1, .myMain .testBlood h1,
+    .testMain .testEndoscopy h1,
+    .myMain .testEndoscopy h1,
+    .testMain .testImaging h1,
+    .myMain .testImaging h1,
+    .testMain .testUrine h1,
+    .myMain .testUrine h1 {
       text-align: center;
-      margin: 0px; }
+      margin: 0; }
   .testMain figcaption, .myMain figcaption {
     font-style: italic; }
 
 .myMain .myBlock {
-  width: 33%;
-  min-height: 300px;
-  height: auto; }
+  top: 0;
+  transition: top 0.2s ease;
+  position: relative;
+  height: auto;
+  margin: 1em;
+  padding: 1em; }
   .myMain .myBlock .myFullInput {
     width: 100%;
     height: 100px; }
@@ -342,6 +359,16 @@ a.mySubmit {
     width: 90%; }
   .myMain .myBlock .mySmallBlock {
     width: 50%;
-    margin-right: 0px; }
+    margin-right: 0; }
+  .myMain .myBlock:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    top: -5px;
+    cursor: default; }
+  .myMain .myBlock.allergy {
+    min-height: 300px; }
+  .myMain .myBlock.immunization {
+    min-height: 300px; }
+  .myMain .myBlock.medication {
+    min-height: 15em; }
 
 /*# sourceMappingURL=default.css.map */

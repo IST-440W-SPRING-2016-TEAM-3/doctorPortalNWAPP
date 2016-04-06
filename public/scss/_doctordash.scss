@@ -1,155 +1,172 @@
-
 // .myForm{
 //   width: 100%;
 //   z-index: -1;
-
-    .myXSmallBlock{
-      width: 20%;
-      display: inline-block;
-      position: relative;
-      margin-right: 1%;
-      float: left;
-    }
-    .mySmallBlock{
-      width: 30%;
-      display: block;
-      position: relative;
-      margin-right: 4%;
-      float: left;
-    }
-    .myComment{
-      width: 100%;
-    }
-    .myMediumBlock{
-      width: 64%;
-      display: block;
-      position: relative;
-      margin-right: 4%;
-      float: left;
-    }
-    .myLabel{
-      width:100%;
-      display: inline-block;
-      font-size: 13px;
-      font-weight: 700;
-      //text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #555;
-      margin-bottom: 5px;
-      cursor: pointer;
-    }
-    .mySmallInput{
-      width: 80%;
-      display: block;
-      height: 38px;
-      padding: 8px 10px;
-      margin-bottom: 5px;
-      font-size: 15px;
-      line-height: 1.4;
-      color: black;
-      border: 2px solid #DDD;
-      border-radius: 4px;
-    }
-    .myFullInput{
-      width: 91%;
-      display: block;
-      height: 38px;
-      padding: 8px 10px;
-      margin-bottom: 5px;
-      font-size: 15px;
-      line-height: 1.4;
-      color: black;
-      border: 2px solid #DDD;
-      border-radius: 4px;
-      height: 200px;
-    }
-    .myRadio{
-      height: 20px;
-      display: inline;
-      width: 10%;
-    }
-    .myClear{
-      clear: both;
-      display: block;
-      font-size: 0px;
-      height: 0px;
-      line-height: 0;
-      width: 100%;
-      overflow: hidden;
-    }
-    .mySmallInput:hover , .myFullInput:hover{
-      border: 2px solid #0086D6;
-    }
+.myXSmallBlock {
+	width: 20%;
+	display: inline-block;
+	position: relative;
+	margin-right: 1%;
+	float: left;
+}
+.mySmallBlock {
+	width: 30%;
+	display: block;
+	position: relative;
+	margin-right: 4%;
+	float: left;
+}
+.myComment {
+	width: 100%;
+}
+.myMediumBlock {
+	width: 64%;
+	display: block;
+	position: relative;
+	margin-right: 4%;
+	float: left;
+}
+.myLabel {
+	width: 100%;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: 700;
+	//text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #555;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+.mySmallInput {
+	width: 80%;
+	display: block;
+	height: 38px;
+	padding: 8px 10px;
+	margin-bottom: 5px;
+	font-size: 15px;
+	line-height: 1.4;
+	color: black;
+	border: 2px solid #DDD;
+	border-radius: 4px;
+}
+.myFullInput {
+	width: 91%;
+	display: block;
+	height: 38px;
+	padding: 8px 10px;
+	margin-bottom: 5px;
+	font-size: 15px;
+	line-height: 1.4;
+	color: black;
+	border: 2px solid #DDD;
+	border-radius: 4px;
+	height: 200px;
+}
+.myRadio {
+	height: 20px;
+	display: inline;
+	width: 10%;
+}
+.myClear {
+	clear: both;
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	width: 100%;
+	overflow: hidden;
+}
+.myFullInput:hover,
+.mySmallInput:hover {
+	border: 2px solid #0086D6;
+}
 //}
 // .mySmallInput:focus{
 //   border: 2px solid #797979;
 // }
-label, input{
-  z-index: 1; //shit used to go on top of the nav bar when scroll, made the nav higher z-index;
+input,
+label {
+	z-index: 1; //shit used to go on top of the nav bar when scroll, made the nav higher z-index;
 }
-a.mySubmit{
-    color: white;
-    text-transform: uppercase;
-		padding: 12px 40px;
-		background-color: #0086D6;
-    border-radius: 5px;
-		font-size: 13px;
-    margin-top: 5px;
-    text-decoration: none;
-    cursor: pointer;
-    display: inline-block;
+a.mySubmit {
+	color: white;
+	text-transform: uppercase;
+	padding: 12px 40px;
+	background-color: #0086D6;
+	border-radius: 5px;
+	font-size: 13px;
+	margin-top: 5px;
+	text-decoration: none;
+	cursor: pointer;
+	display: inline-block;
 }
-
 //TEST RESULTS
-.testMain{
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-
-  .testUrine, .testBlood, .testImaging, .testEndoscopy{
-    width: 50%;
-    min-height: 350px;
-    height: auto;
-    h1{
-      text-align: center;
-      margin:0px;
-    }
-  }
-      .testUrine{
-        //background: #f2615c;
-    }
-      .testBlood{
-        //background: lightgreen;
-    }
-      .testImaging{
-        //background: lightblue;
-    }
-      .testEndoscopy{
-        //background: #e4fb53;
-    }
-    figcaption{
-      font-style: italic;
-    }
+.testMain {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	.testBlood,
+	.testEndoscopy,
+	.testImaging,
+	.testUrine {
+		width: 50%;
+		min-height: 350px;
+		height: auto;
+		h1 {
+			text-align: center;
+			margin: 0;
+		}
+	}
+	.testUrine {
+		//background: #f2615c;
+	}
+	.testBlood {
+		//background: lightgreen;
+	}
+	.testImaging {
+		//background: lightblue;
+	}
+	.testEndoscopy {
+		//background: #e4fb53;
+	}
+	figcaption {
+		font-style: italic;
+	}
 }
-.myMain{
-  @extend .testMain;
-
-  .myBlock{
-    width: 33%;
-    min-height: 300px;
-    height: auto;
-  //  background-color: yellow;
-    .myFullInput{
-      width: 100%;
-      height: 100px;
-    }
-    .myMediumBlock{
-      width: 90%;
-    }
-    .mySmallBlock{
-      width: 50%;
-      margin-right: 0px;
-    }
-  }
+.myMain {
+	@extend .testMain;
+	.myBlock {
+		top: 0;
+		transition: top 0.2s ease;
+        position: relative;
+		height: auto;
+        margin: 1em;
+        padding: 1em;
+		//  background-color: yellow;
+		.myFullInput {
+			width: 100%;
+			height: 100px;
+		}
+		.myMediumBlock {
+			width: 90%;
+		}
+		.mySmallBlock {
+			width: 50%;
+			margin-right: 0;
+		}
+		&:hover {
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+			top: -5px;
+			cursor: default;
+		}
+		&.allergy {
+			min-height: 300px;
+		}
+		&.immunization {
+			min-height: 300px;
+		}
+		&.medication {
+			min-height: 15em;
+		}
+	}
 }

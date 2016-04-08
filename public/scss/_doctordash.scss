@@ -61,6 +61,43 @@
 	border-radius: 4px;
 	height: 200px;
 }
+.input100{
+	width: 100%;
+	display:block;
+	height:38px;
+	padding: 8px, 10px;
+	margin-bottom: 5px;
+	font-size: 15px;
+	line-height: 1.4;
+	color: black;
+	border: 2px solid #DDD;
+	border-radius: 4px;
+}
+
+.input50{
+	//margin-right:10px;
+	width: 40%;
+	display: block;
+	height: 38px;
+	padding: 8px 10px;
+	margin-bottom: 5px;
+	font-size: 15px;
+	line-height: 1.4;
+	color: black;
+	border: 2px solid #DDD;
+	border-radius: 4px;
+}
+.input50_last{
+	@extend .input50;
+	margin: 0px;
+}
+
+
+
+
+
+
+
 .myRadio {
 	height: 20px;
 	display: inline;
@@ -136,12 +173,13 @@ a.mySubmit {
 .myMain {
 	@extend .testMain;
 	.myBlock {
+		border: solid 2px #e0e0e0;
 		top: 0;
 		transition: top 0.2s ease;
-        position: relative;
+    position: relative;
 		height: auto;
-        margin: 1em;
-        padding: 1em;
+    margin-right: 1em;
+    padding: 10px;
 		//  background-color: yellow;
 		.myFullInput {
 			width: 100%;
@@ -166,7 +204,7 @@ a.mySubmit {
 			min-height: 300px;
 		}
 		&.medication {
-			min-height: 15em;
+			min-height: 580px;
 		}
 	}
 }

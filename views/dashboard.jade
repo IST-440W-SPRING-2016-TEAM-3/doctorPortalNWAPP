@@ -177,32 +177,23 @@ block content
 					.myMain
 						.form-group(data-ng-repeat='choice in medicationChoices')
 							.myBlock.medication
-								.myMediumBlock
-									label.myLabel Medication Name
-									input.mySmallInput
-
+								label.myLabel Medication Name
+								input.input100
 								.myClear
-								.myMediumBlock
-									label.myLabel Dosage (mg,m,etc)
-									input.mySmallInput
-
+								label.myLabel Dosage (mg,m,etc)
+								input.input100
 								.myClear
-								.myMediumBlock
-									label.myLabel Frequency (twice a day/ every 2 hours etc.)
-									input.mySmallInput
-
+								label.myLabel Frequency (twice a day/ every 2 hours etc.)
+								input.input100
 								.myClear
-								.mySmallBlock
-									label.myLabel Date start
-									input.mySmallInput
-								.mySmallBlock
-									label.myLabel Date End
-									input.mySmallInput
+								label.myLabel Date start
+								input.input50
+								label.myLabel Date End
+								input.input50_last
 								.myClear
-								.myMediumBlock
-									label.myLabel Description
-									input.myFullInput
-									a.mySubmit(ng-show='showAddMedicationChoice(choice)', ng-click='addNewMedicationChoice()') Add another choice
+								label.myLabel Description
+								input.myFullInput
+								a.mySubmit(ng-show='showAddMedicationChoice(choice)', ng-click='addNewMedicationChoice()') Add another choice
 					a.mySubmit.pull-right Submit
 
 			#allergies.tab-pane.fade

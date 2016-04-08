@@ -284,6 +284,33 @@ p {
   border-radius: 4px;
   height: 200px; }
 
+.input100 {
+  width: 100%;
+  display: block;
+  height: 38px;
+  padding: 8px, 10px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: black;
+  border: 2px solid #DDD;
+  border-radius: 4px; }
+
+.input50, .input50_last {
+  width: 40%;
+  display: block;
+  height: 38px;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: black;
+  border: 2px solid #DDD;
+  border-radius: 4px; }
+
+.input50_last {
+  margin: 0px; }
+
 .myRadio {
   height: 20px;
   display: inline;
@@ -346,12 +373,13 @@ a.mySubmit {
     font-style: italic; }
 
 .myMain .myBlock {
+  border: solid 2px #e0e0e0;
   top: 0;
   transition: top 0.2s ease;
   position: relative;
   height: auto;
-  margin: 1em;
-  padding: 1em; }
+  margin-right: 1em;
+  padding: 10px; }
   .myMain .myBlock .myFullInput {
     width: 100%;
     height: 100px; }
@@ -369,6 +397,6 @@ a.mySubmit {
   .myMain .myBlock.immunization {
     min-height: 300px; }
   .myMain .myBlock.medication {
-    min-height: 15em; }
+    min-height: 580px; }
 
 /*# sourceMappingURL=default.css.map */

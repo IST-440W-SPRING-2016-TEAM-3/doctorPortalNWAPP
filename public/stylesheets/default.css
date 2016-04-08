@@ -297,7 +297,7 @@ p {
   border-radius: 4px; }
 
 .input50, .input50_last {
-  width: 40%;
+  width: 95%;
   display: block;
   height: 38px;
   padding: 8px 10px;
@@ -309,7 +309,7 @@ p {
   border-radius: 4px; }
 
 .input50_last {
-  margin: 0px; }
+  margin-left: 5%; }
 
 .myRadio {
   height: 20px;
@@ -350,30 +350,24 @@ a.mySubmit {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start; }
-  .testMain .testBlood, .myMain .testBlood,
-  .testMain .testEndoscopy,
-  .myMain .testEndoscopy,
-  .testMain .testImaging,
-  .myMain .testImaging,
-  .testMain .testUrine,
-  .myMain .testUrine {
-    width: 50%;
-    min-height: 350px;
-    height: auto; }
-    .testMain .testBlood h1, .myMain .testBlood h1,
-    .testMain .testEndoscopy h1,
-    .myMain .testEndoscopy h1,
-    .testMain .testImaging h1,
-    .myMain .testImaging h1,
-    .testMain .testUrine h1,
-    .myMain .testUrine h1 {
-      text-align: center;
-      margin: 0; }
-  .testMain figcaption, .myMain figcaption {
-    font-style: italic; }
+  .testMain h1, .myMain h1 {
+    margin: 0px; }
+  .testMain .testBlock, .myMain .testBlock {
+    border: solid 2px #DDD;
+    top: 0;
+    transition: top 0.2s ease;
+    position: relative;
+    height: auto;
+    margin: 1em;
+    padding: 10px;
+    width: 40%; }
+    .testMain .testBlock:hover, .myMain .testBlock:hover {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+      top: -5px;
+      cursor: default; }
 
 .myMain .myBlock {
-  border: solid 2px #e0e0e0;
+  border: solid 2px #DDD;
   top: 0;
   transition: top 0.2s ease;
   position: relative;
@@ -397,6 +391,6 @@ a.mySubmit {
   .myMain .myBlock.immunization {
     min-height: 300px; }
   .myMain .myBlock.medication {
-    min-height: 580px; }
+    min-height: 480px; }
 
 /*# sourceMappingURL=default.css.map */

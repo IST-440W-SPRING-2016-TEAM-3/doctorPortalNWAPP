@@ -20,9 +20,6 @@ block content
 		.userContent.tab-content						
 			#createuserprofile.tab-pane.fade.in.active
 				h1 Create User
-				//- p 123123123123
-				//- p 123123123
-				//.myForm
 				.mySmallBlock
 					label.myLabel First Name *
 					input.mySmallInput(ng-model="user.firstname")
@@ -84,137 +81,119 @@ block content
 			#testresults.tab-pane.fade
 				h1 Test Results
 				.testMain
-					.testUrine
+					.testBlock
 						h1 Urine Tests
+						label.myLabel pH Level? 1-14
+						input.mySmallInput
+						.myClear		
+						label.myLabel Glucose
+						input.mySmallInput
+						//figcaption shits is described?								
+						.myClear		
+						label.myLabel Ketones? y/n
+						input.mySmallInput
+						//figcaption describes the shits									
+						.myClear		
+						label.myLabel Gravity? 1.005 - 1.030
+						input.mySmallInput
+						//figcaption this is a test
+						a.mySubmit Submit
+						//end urinetests			
 
-						.mySmallBlock
-							label.myLabel maybe pH level? 1-14
-							input.mySmallInput
-							//figcaption maybe describing the shits?
-						.myClear		
-						.mySmallBlock
-							label.myLabel Glucose?
-							input.mySmallInput
-							//figcaption shits is described?								
-						.myClear		
-						.mySmallBlock
-							label.myLabel Ketones? y/n
-							input.mySmallInput
-							//figcaption describes the shits									
-						.myClear		
-						.mySmallBlock
-							label.myLabel Gravity? 1.005 - 1.030
-							input.mySmallInput
-							//figcaption this is a test
-							a.mySubmit Submit
-							//end urinetests			
-
-					.testBlood
+					.testBlock
 						h1 Blood Tests
-
-						.mySmallBlock
-							label.myLabel Cholesterol mg/dL
-							input.mySmallInput
+						label.myLabel Cholesterol mg/dL
+						input.mySmallInput
 						.myClear		
-						.mySmallBlock
-							label.myLabel Blood Type (A, B, AB, O)
-							input.mySmallInput								
+						label.myLabel Blood Type (A, B, AB, O)
+						input.mySmallInput								
 						.myClear		
-						.mySmallBlock
-							label.myLabel Glucose
-							input.mySmallInput									
+						label.myLabel Glucose
+						input.mySmallInput									
 						.myClear		
-						.mySmallBlock
-							label.myLabel CRP level mg/L
-							input.mySmallInput						
+						label.myLabel CRP level mg/L
+						input.mySmallInput
+						a.mySubmit Submit									
 						//end blood tests
 
-					.testImaging
+					.testBlock
 						h1 Imaging Tests
-
-						.mySmallBlock
-							label.myLabel Label shit
-							input.mySmallInput
+						label.myLabel Label shit
+						input.mySmallInput
 						.myClear		
-						.mySmallBlock
-							label.myLabel Label shit
-							input.mySmallInput								
+						label.myLabel Label shit
+						input.mySmallInput								
 						.myClear		
-						.mySmallBlock
-							label.myLabel Label shit
-							input.mySmallInput									
+						label.myLabel Label shit
+						input.mySmallInput									
 						.myClear		
-						.mySmallBlock
-							label.myLabel Label shit
-							input.mySmallInput
+						label.myLabel Label shit
+						input.mySmallInput
+						a.mySubmit Submit						
 						//ennd test Imaging
 
-					.testEndoscopy
-						h1 Endoscopy Tests
-
-						.mySmallBlock
-							label.myLabel Blood Pressure
-							label.myLabel Systolic
-							input.mySmallInput
-							label.myLabel Diastolic
-							input.mySmallInput
-						.myClear		
-						.mySmallBlock
+					.testBlock
+							h1 Endoscopy Tests
+							.mySmallBlock
+								label.myLabel Blood Pressure
+								input.input50(placeholder="Diastolic")
+							.mySmallBlock
+								label.myLabel(content="")
+								input.input50_last(placeholder="Systolic")
+							.myClear		
 							label.myLabel PSA Serum (prostate) 1-4 ng/mL
 							input.mySmallInput								
-						.myClear		
-						.mySmallBlock
+							.myClear		
 							label.myLabel Vision 20/20 20/40 etc..
 							input.mySmallInput									
-						.myClear		
-						.mySmallBlock
+							.myClear		
 							label.myLabel Label shit
 							input.mySmallInput
 							//end test endoscopy
 
 			#medications.tab-pane.fade
 				h1 Medications
-					.myMain
-						.form-group(data-ng-repeat='choice in medicationChoices')
-							.myBlock.medication
-								label.myLabel Medication Name
-								input.input100
-								.myClear
-								label.myLabel Dosage (mg,m,etc)
-								input.input100
-								.myClear
-								label.myLabel Frequency (twice a day/ every 2 hours etc.)
-								input.input100
-								.myClear
+				.myMain
+					.form-group(data-ng-repeat='choice in medicationChoices')
+						.myBlock.medication
+							label.myLabel Medication Name
+							input.input100
+							.myClear
+							label.myLabel Dosage (mg,m,etc)
+							input.input100
+							.myClear
+							label.myLabel Frequency (twice a day/ every 2 hours etc.)
+							input.input100
+							.myClear
+							.mySmallBlock
 								label.myLabel Date start
 								input.input50
+							.mySmallBlock									
 								label.myLabel Date End
 								input.input50_last
-								.myClear
-								label.myLabel Description
-								input.myFullInput
-								a.mySubmit(ng-show='showAddMedicationChoice(choice)', ng-click='addNewMedicationChoice()') Add another choice
-					a.mySubmit.pull-right Submit
+							.myClear
+							label.myLabel Description
+							input.myFullInput
+							a.mySubmit(ng-show='showAddMedicationChoice(choice)', ng-click='addNewMedicationChoice()') Add another choice
+				a.mySubmit.pull-right Submit
 
 			#allergies.tab-pane.fade
 				h1 Allergies
 				.myMain
 					.form-group(data-ng-repeat='choice in allergyChoices')
 						.myBlock.allergy
-							.myMediumBlock
-								label.myLabel Allergy Name
-								input.mySmallInput(ng-model="choice.name")
+							label.myLabel Allergy Name
+							input.input100(ng-model="choice.name")
 							.myClear
 							.mySmallBlock
-								label.control-label.myLabel Date start
-								input(class="datepicker1 mySmallInput form-control",type='text', ng-model="choice.datepicker1")
+								label.control-label.myLabel Date Start
+								input(class="datepicker1 input50 form-control",type='text', ng-model="choice.datepicker1")
 							.mySmallBlock
 								label.control-label.myLabel Date End
-								input.form-control.mySmallInput.datepicker2(type='text', ng-model="choice.datepicker2")
+								input.form-control.input50_last.datepicker2(type='text', ng-model="choice.datepicker2")
 							.myClear
-							.myMediumBlock
-								label.myLabel Description
-								input.myFullInput(ng-model="choice.description")
+							label.myLabel Description
+							input.myFullInput(ng-model="choice.description")
 							a.mySubmit(ng-show='showAddAllergiesChoice(choice)', ng-click='addNewAllergiesChoice()') Add another choice
 				a.mySubmit.pull-right Submit
 			#immunizations.tab-pane.fade
@@ -222,20 +201,18 @@ block content
 				.myMain
 					.form-group(data-ng-repeat='choice in immunizationChoices')
 						.myBlock.immunization
-							.myMediumBlock
-								label.myLabel Immunization Name
-								input.mySmallInput
+							label.myLabel Immunization Name
+							input.input100
 							.myClear
 							.mySmallBlock
 								label.myLabel Date Recorded
-								input.mySmallInput
+								input.input50
 							.mySmallBlock
 								label.myLabel Date Expires
-								input.mySmallInput
+								input.input50_last
 							.myClear
-							.myMediumBlock
-								label.myLabel Description
-								input.myFullInput
+							label.myLabel Description
+							input.myFullInput
 							a.mySubmit(ng-show='showAddImmunizationChoice(choice)', ng-click='addNewImmunizationChoice()') Add another choice
 				a.mySubmit.pull-right Submit
 			#history.tab-pane.fade

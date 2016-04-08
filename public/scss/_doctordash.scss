@@ -76,7 +76,7 @@
 
 .input50{
 	//margin-right:10px;
-	width: 40%;
+	width: 95%;
 	display: block;
 	height: 38px;
 	padding: 8px 10px;
@@ -89,14 +89,8 @@
 }
 .input50_last{
 	@extend .input50;
-	margin: 0px;
+	margin-left: 5%;
 }
-
-
-
-
-
-
 
 .myRadio {
 	height: 20px;
@@ -142,38 +136,29 @@ a.mySubmit {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: flex-start;
-	.testBlood,
-	.testEndoscopy,
-	.testImaging,
-	.testUrine {
-		width: 50%;
-		min-height: 350px;
+  h1{
+    margin: 0px;
+  }
+  .testBlock{
+    border: solid 2px #DDD;
+		top: 0;
+		transition: top 0.2s ease;
+    position: relative;
 		height: auto;
-		h1 {
-			text-align: center;
-			margin: 0;
-		}
-	}
-	.testUrine {
-		//background: #f2615c;
-	}
-	.testBlood {
-		//background: lightgreen;
-	}
-	.testImaging {
-		//background: lightblue;
-	}
-	.testEndoscopy {
-		//background: #e4fb53;
-	}
-	figcaption {
-		font-style: italic;
-	}
+    margin: 1em;
+    padding: 10px;
+    width: 40%;
+  &:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    top: -5px;
+    cursor: default;
+  }
+}
 }
 .myMain {
 	@extend .testMain;
 	.myBlock {
-		border: solid 2px #e0e0e0;
+		border: solid 2px #DDD;
 		top: 0;
 		transition: top 0.2s ease;
     position: relative;
@@ -204,7 +189,7 @@ a.mySubmit {
 			min-height: 300px;
 		}
 		&.medication {
-			min-height: 580px;
+			min-height: 480px;
 		}
 	}
 }

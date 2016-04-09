@@ -83,73 +83,72 @@ block content
 				.testMain
 					.testBlock
 						h1 Urine Tests
-						label.myLabel pH Level? 1-14
-						input.mySmallInput
+						label.myLabel pH Level
+						input.mySmallInput(placeholder="1-14")
 						.myClear		
 						label.myLabel Glucose
-						input.mySmallInput
+						input.mySmallInput(placeholder="Something")
 						//figcaption shits is described?								
 						.myClear		
-						label.myLabel Ketones? y/n
-						input.mySmallInput
+						label.myLabel Ketones
+						input.mySmallInput(placeholder="Yes/No")
 						//figcaption describes the shits									
 						.myClear		
-						label.myLabel Gravity? 1.005 - 1.030
-						input.mySmallInput
+						label.myLabel Gravity
+						input.mySmallInput(placeholder="1.005 - 1.030")
 						//figcaption this is a test
 						a.mySubmit Submit
 						//end urinetests			
 
 					.testBlock
 						h1 Blood Tests
-						label.myLabel Cholesterol mg/dL
-						input.mySmallInput
+						label.myLabel Cholesterol
+						input.mySmallInput(placeholder="mg/dL")
 						.myClear		
-						label.myLabel Blood Type (A, B, AB, O)
-						input.mySmallInput								
+						label.myLabel Blood Type
+						input.mySmallInput(placeholder="A, B, AB, O")								
 						.myClear		
 						label.myLabel Glucose
-						input.mySmallInput									
+						input.mySmallInput(placeholder="Something")									
 						.myClear		
 						label.myLabel CRP level mg/L
-						input.mySmallInput
+						input.mySmallInput(placeholder="mg/L")
 						a.mySubmit Submit									
 						//end blood tests
 
 					.testBlock
 						h1 Imaging Tests
 						label.myLabel Label shit
-						input.mySmallInput
+						input.mySmallInput(placeholder="Something")
 						.myClear		
 						label.myLabel Label shit
-						input.mySmallInput								
+						input.mySmallInput(placeholder="Something")								
 						.myClear		
 						label.myLabel Label shit
-						input.mySmallInput									
+						input.mySmallInput(placeholder="Something")								
 						.myClear		
 						label.myLabel Label shit
-						input.mySmallInput
+						input.mySmallInput(placeholder="Something")
 						a.mySubmit Submit						
 						//ennd test Imaging
 
 					.testBlock
-							h1 Endoscopy Tests
-							.mySmallBlock
-								label.myLabel Blood Pressure
-								input.input50(placeholder="Diastolic")
-							.mySmallBlock
-								label.myLabel(content="")
-								input.input50_last(placeholder="Systolic")
-							.myClear		
-							label.myLabel PSA Serum (prostate) 1-4 ng/mL
-							input.mySmallInput								
-							.myClear		
-							label.myLabel Vision 20/20 20/40 etc..
-							input.mySmallInput									
-							.myClear		
-							label.myLabel Label shit
-							input.mySmallInput
-							//end test endoscopy
+						h1 Endoscopy Tests
+						.mediumbox
+							label.myLabel Blood Pressure
+							input.input50(placeholder="Diastolic")
+							input.input50_last.pull-left(placeholder="Systolic")
+						.myClear		
+						label.myLabel PSA Serum
+						input.mySmallInput(placeholder="1-4 ng/mL")								
+						.myClear		
+						label.myLabel Vision 20/20 20/40 etc..
+						input.mySmallInput(placeholder="20/20 20/40 etc..")									
+						.myClear		
+						label.myLabel Label shit
+						input.mySmallInput(placeholder="Something")
+						a.mySubmit Submit	
+						//end test endoscopy
 
 			#medications.tab-pane.fade
 				h1 Medications
@@ -169,12 +168,12 @@ block content
 								label.myLabel Date start
 								input.input50
 							.mySmallBlock									
-								label.myLabel Date End
+								label.myLabel_last Date End
 								input.input50_last
 							.myClear
 							label.myLabel Description
 							input.myFullInput
-							a.mySubmit(ng-show='showAddMedicationChoice(choice)', ng-click='addNewMedicationChoice()') Add another choice
+							a.mySubmit(ng-show='showAddMedicationChoice(choice)', ng-click='addNewMedicationChoice()') Add another Medication
 				a.mySubmit.pull-right Submit
 
 			#allergies.tab-pane.fade
@@ -189,12 +188,12 @@ block content
 								label.control-label.myLabel Date Start
 								input(class="datepicker1 input50 form-control",type='text', ng-model="choice.datepicker1")
 							.mySmallBlock
-								label.control-label.myLabel Date End
+								label.control-label.myLabel_last Date End
 								input.form-control.input50_last.datepicker2(type='text', ng-model="choice.datepicker2")
 							.myClear
 							label.myLabel Description
 							input.myFullInput(ng-model="choice.description")
-							a.mySubmit(ng-show='showAddAllergiesChoice(choice)', ng-click='addNewAllergiesChoice()') Add another choice
+							a.mySubmit(ng-show='showAddAllergiesChoice(choice)', ng-click='addNewAllergiesChoice()') Add another Allergy
 				a.mySubmit.pull-right Submit
 			#immunizations.tab-pane.fade
 				h1 Immunizations
@@ -208,12 +207,12 @@ block content
 								label.myLabel Date Recorded
 								input.input50
 							.mySmallBlock
-								label.myLabel Date Expires
+								label.myLabel_last Date Expires
 								input.input50_last
 							.myClear
 							label.myLabel Description
 							input.myFullInput
-							a.mySubmit(ng-show='showAddImmunizationChoice(choice)', ng-click='addNewImmunizationChoice()') Add another choice
+							a.mySubmit(ng-show='showAddImmunizationChoice(choice)', ng-click='addNewImmunizationChoice()') Add another Immunization
 				a.mySubmit.pull-right Submit
 			#history.tab-pane.fade
 				h1 History

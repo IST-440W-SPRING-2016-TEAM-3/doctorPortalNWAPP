@@ -1,6 +1,3 @@
-// .myForm{
-//   width: 100%;
-//   z-index: -1;
 .myXSmallBlock {
 	width: 20%;
 	display: inline-block;
@@ -30,11 +27,14 @@
 	display: inline-block;
 	font-size: 13px;
 	font-weight: 700;
-	//text-transform: uppercase;
 	letter-spacing: 1px;
 	color: #555;
 	margin-bottom: 5px;
 	cursor: pointer;
+}
+.myLabel_last{
+	@extend .myLabel;
+	margin-left: 5%;
 }
 .mySmallInput {
 	width: 80%;
@@ -61,6 +61,35 @@
 	border-radius: 4px;
 	height: 200px;
 }
+.input100{
+	width: 100%;
+	display:block;
+	height:38px;
+	padding: 8px, 10px;
+	margin-bottom: 5px;
+	font-size: 15px;
+	line-height: 1.4;
+	color: black;
+	border: 2px solid #DDD;
+	border-radius: 4px;
+}
+.input50{
+	width: 95%;
+	display: block;
+	height: 38px;
+	padding: 8px 10px;
+	margin-bottom: 5px;
+	font-size: 15px;
+	line-height: 1.4;
+	color: black;
+	border: 2px solid #DDD;
+	border-radius: 4px;
+}
+.input50_last{
+	@extend .input50;
+	margin-left: 5%;
+}
+
 .myRadio {
 	height: 20px;
 	display: inline;
@@ -79,10 +108,6 @@
 .mySmallInput:hover {
 	border: 2px solid #0086D6;
 }
-//}
-// .mySmallInput:focus{
-//   border: 2px solid #797979;
-// }
 input,
 label {
 	z-index: 1; //shit used to go on top of the nav bar when scroll, made the nav higher z-index;
@@ -105,44 +130,48 @@ a.mySubmit {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: flex-start;
-	.testBlood,
-	.testEndoscopy,
-	.testImaging,
-	.testUrine {
-		width: 50%;
-		min-height: 350px;
+  h1{
+    margin: 0px;
+  }
+  .testBlock{
+    border: solid 2px #DDD;
+		top: 0;
+		transition: top 0.2s ease;
+    position: relative;
 		height: auto;
-		h1 {
-			text-align: center;
-			margin: 0;
+    margin: 0em 1em 1em 0px;
+    padding: 10px;
+    width: 40%;
+  	&:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    top: -5px;
+    cursor: default;
 		}
-	}
-	.testUrine {
-		//background: #f2615c;
-	}
-	.testBlood {
-		//background: lightgreen;
-	}
-	.testImaging {
-		//background: lightblue;
-	}
-	.testEndoscopy {
-		//background: #e4fb53;
-	}
-	figcaption {
-		font-style: italic;
-	}
+		h1{
+			color: #4E4E4E;
+			padding: 10px 0px 10px 0px;
+			margin: 0px 0px 10px 0px;
+			border-bottom: solid 2px #DDD;
+		}
+		.mediumbox{
+			width: 81%;
+			.input50{
+				width:47%;
+				float:left;
+			}
+		}
+  }
 }
 .myMain {
 	@extend .testMain;
 	.myBlock {
+		border: solid 2px #DDD;
 		top: 0;
 		transition: top 0.2s ease;
-        position: relative;
+    position: relative;
 		height: auto;
-        margin: 1em;
-        padding: 1em;
-		//  background-color: yellow;
+    margin-right: 1em;
+    padding: 10px;
 		.myFullInput {
 			width: 100%;
 			height: 100px;
@@ -166,7 +195,7 @@ a.mySubmit {
 			min-height: 300px;
 		}
 		&.medication {
-			min-height: 15em;
+			min-height: 480px;
 		}
 	}
 }

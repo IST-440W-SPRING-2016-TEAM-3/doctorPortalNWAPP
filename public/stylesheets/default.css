@@ -249,7 +249,7 @@ p {
   margin-right: 4%;
   float: left; }
 
-.myLabel {
+.myLabel, .myLabel_last {
   width: 100%;
   display: inline-block;
   font-size: 13px;
@@ -258,6 +258,9 @@ p {
   color: #555;
   margin-bottom: 5px;
   cursor: pointer; }
+
+.myLabel_last {
+  margin-left: 5%; }
 
 .mySmallInput {
   width: 80%;
@@ -283,6 +286,33 @@ p {
   border: 2px solid #DDD;
   border-radius: 4px;
   height: 200px; }
+
+.input100 {
+  width: 100%;
+  display: block;
+  height: 38px;
+  padding: 8px, 10px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: black;
+  border: 2px solid #DDD;
+  border-radius: 4px; }
+
+.input50, .input50_last {
+  width: 95%;
+  display: block;
+  height: 38px;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: black;
+  border: 2px solid #DDD;
+  border-radius: 4px; }
+
+.input50_last {
+  margin-left: 5%; }
 
 .myRadio {
   height: 20px;
@@ -323,35 +353,40 @@ a.mySubmit {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start; }
-  .testMain .testBlood, .myMain .testBlood,
-  .testMain .testEndoscopy,
-  .myMain .testEndoscopy,
-  .testMain .testImaging,
-  .myMain .testImaging,
-  .testMain .testUrine,
-  .myMain .testUrine {
-    width: 50%;
-    min-height: 350px;
-    height: auto; }
-    .testMain .testBlood h1, .myMain .testBlood h1,
-    .testMain .testEndoscopy h1,
-    .myMain .testEndoscopy h1,
-    .testMain .testImaging h1,
-    .myMain .testImaging h1,
-    .testMain .testUrine h1,
-    .myMain .testUrine h1 {
-      text-align: center;
-      margin: 0; }
-  .testMain figcaption, .myMain figcaption {
-    font-style: italic; }
+  .testMain h1, .myMain h1 {
+    margin: 0px; }
+  .testMain .testBlock, .myMain .testBlock {
+    border: solid 2px #DDD;
+    top: 0;
+    transition: top 0.2s ease;
+    position: relative;
+    height: auto;
+    margin: 0em 1em 1em 0px;
+    padding: 10px;
+    width: 40%; }
+    .testMain .testBlock:hover, .myMain .testBlock:hover {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+      top: -5px;
+      cursor: default; }
+    .testMain .testBlock h1, .myMain .testBlock h1 {
+      color: #4E4E4E;
+      padding: 10px 0px 10px 0px;
+      margin: 0px 0px 10px 0px;
+      border-bottom: solid 2px #DDD; }
+    .testMain .testBlock .mediumbox, .myMain .testBlock .mediumbox {
+      width: 81%; }
+      .testMain .testBlock .mediumbox .input50, .myMain .testBlock .mediumbox .input50, .testMain .testBlock .mediumbox .input50_last, .myMain .testBlock .mediumbox .input50_last {
+        width: 47%;
+        float: left; }
 
 .myMain .myBlock {
+  border: solid 2px #DDD;
   top: 0;
   transition: top 0.2s ease;
   position: relative;
   height: auto;
-  margin: 1em;
-  padding: 1em; }
+  margin-right: 1em;
+  padding: 10px; }
   .myMain .myBlock .myFullInput {
     width: 100%;
     height: 100px; }
@@ -369,6 +404,6 @@ a.mySubmit {
   .myMain .myBlock.immunization {
     min-height: 300px; }
   .myMain .myBlock.medication {
-    min-height: 15em; }
+    min-height: 480px; }
 
 /*# sourceMappingURL=default.css.map */

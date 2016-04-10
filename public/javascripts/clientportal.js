@@ -60,7 +60,7 @@
 		};
 
 		$scope.showAddImmunizationChoice = function(choice) {
-			return choice.id === $scope.immunizationChoices[$scope.immunizationChoices.length - 1].id;
+			return choice.id === $scope.immunizationChoices[$scope.allergyChoices.length - 1].id;
 		};
 
 		$('.datepicker1').datepicker({});

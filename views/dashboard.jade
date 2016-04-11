@@ -76,29 +76,55 @@ block content
 					input.mySmallInput
 				.myMediumBlock
 					label.myLabel Comment
-					input.myFullInput								
+					input.myFullInput
+					form(name='myForm')						
+
 
 			#testresults.tab-pane.fade
 				h1 Test Results
 				.testMain
 					.testBlock
 						h1 Urine Tests
-						label.myLabel pH Level
-						input.mySmallInput(placeholder="1-14")
-						.myClear		
-						label.myLabel Glucose
-						input.mySmallInput(placeholder="Something")
-						//figcaption shits is described?								
-						.myClear		
-						label.myLabel Ketones
-						input.mySmallInput(placeholder="Yes/No")
-						//figcaption describes the shits									
-						.myClear		
-						label.myLabel Gravity
-						input.mySmallInput(placeholder="1.005 - 1.030")
-						//figcaption this is a test
-						a.mySubmit Submit
-						//end urinetests			
+						form(name='urineTests' novalidate)
+							label.myLabel pH Level
+							input.mySmallInput(
+								placeholder="1-14"
+								type="text" 
+								name="pH" 
+								ng-model="urine.pH" 
+								ng-required="true")
+							span.myWarning(ng-show="urineTests.pH.$invalid && urineTests.pH.$touched") You must put a number between 1-14
+
+							.myClear		
+							label.myLabel Glucose
+							input.mySmallInput(placeholder="mg/dL" 
+								name="Glucose" 
+								ng-model="urine.Glucose"
+								ng-required="true")
+							span.myWarning(ng-show="urineTests.Glucose.$invalid && urineTests.Glucose.$touched") test text test text
+
+							.myClear		
+							label.myLabel Ketones
+							Input.mySmallInput(placeholder="mg/dL" 
+							name="Ketones" 
+							ng-model="urine.Ketones"
+							ng-required="true")
+							span.myWarning(ng-show="urineTests.Ketones.$invalid && urineTests.Ketones.$touched") You must select Yes or No
+
+							.myClear		
+							label.myLabel Gravity
+							input.mySmallInput(placeholder="1.005 - 1.030" 
+							type="number" 
+							name="Gravity" 
+							ng-model="urine.Gravity" 
+							ng-required="true"
+							ng-minlength="1.005" 
+							ng-maxlength="1.030"
+							ng-pattern= ".+")
+							span.myWarning(ng-show="urineTests.Gravity.$invalid && urineTests.Gravity.$touched") You must enter a number between 1.005-1.030
+
+							a.mySubmit.btnsub Submit
+							//end urinetests
 
 					.testBlock
 						h1 Blood Tests
@@ -154,22 +180,54 @@ block content
 				h1 Medications
 				.myMain
 					.form-group(data-ng-repeat='choice in medicationChoices')
-						.myBlock.medication
+						form.myBlock.medication(name="medications" novalidate)
 							label.myLabel Medication Name
-							input.input100
+							input.input100(
+								placeholder="Medication Name"
+								type="text" 
+								name="Medname" 
+								ng-model="med.name" 
+								ng-required="true")
+							span.myWarning(ng-show="medications.Medname.$invalid && medications.Medname.$touched") You must enter a medication name	
 							.myClear
+
 							label.myLabel Dosage (mg,m,etc)
-							input.input100
+							input.input100(
+								placeholder="mg, g, etc.."
+								type="text" 
+								name="Dosage" 
+								ng-model="med.dosage" 
+								ng-required="true")
+							span.myWarning(ng-show="medications.Dosage.$invalid && medications.Dosage.$touched") You must enter a dosage	
 							.myClear
+
 							label.myLabel Frequency (twice a day/ every 2 hours etc.)
-							input.input100
+							input.input100(
+								placeholder="Frequency"
+								type="text" 
+								name="Frequency" 
+								ng-model="med.frequency" 
+								ng-required="true")
+							span.myWarning(ng-show="medications.Frequency.$invalid && medications.Frequency.$touched") You must enter a frequency
 							.myClear
 							.mySmallBlock
-								label.myLabel Date start
-								input.input50
+								label.myLabel Date Start
+								input.input50(
+									placeholder="mm/dd/yyyy"
+									type="text" 
+									name="DateStart" 
+									ng-model="med.DateStart" 
+									ng-required="true")
+								span.myWarning(ng-show="medications.DateStart.$invalid && medications.DateStart.$touched") You must enter a start date
 							.mySmallBlock									
 								label.myLabel_last Date End
-								input.input50_last
+								input.input50_last(
+									placeholder="mm/dd/yyyy"
+									type="text" 
+									name="DateEnd" 
+									ng-model="med.DateEnd" 
+									ng-required="true")
+								span.myWarning(ng-show="medications.DateEnd.$invalid && medications.DateEnd.$touched") You must enter an end date
 							.myClear
 							label.myLabel Description
 							input.myFullInput

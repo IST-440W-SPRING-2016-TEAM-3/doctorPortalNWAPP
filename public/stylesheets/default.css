@@ -359,9 +359,11 @@ a.mySubmit {
     font-style: italic;
     display: block; }
   .testMain input.ng-invalid.ng-touched, .myMain input.ng-invalid.ng-touched {
-    border: 2px solid #DA3637; }
+    border: 2px solid #DA3637;
+    outline: none; }
   .testMain input.ng-valid.ng-touched, .myMain input.ng-valid.ng-touched {
-    border: 2px solid #509D12; }
+    border: 2px solid #509D12;
+    outline: none; }
   .testMain .ng-invalid .btnsub, .myMain .ng-invalid .btnsub {
     background: gray;
     color: white;
@@ -453,6 +455,8 @@ a.mySubmit {
     transform: rotate(3deg);
     right: 10px;
     left: auto; }
+  .myMain .myBlock .input100 {
+    padding: 8px 10px; }
   .myMain .myBlock .myFullInput {
     width: 100%;
     height: 100px; }

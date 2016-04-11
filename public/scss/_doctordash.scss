@@ -138,9 +138,11 @@ a.mySubmit {
 	}
 	input.ng-invalid.ng-touched {
 	border: 2px solid #DA3637;
+	outline:none;
 	}
 	input.ng-valid.ng-touched {
 	border: 2px solid #509D12;
+	outline:none;
 	}
 	.ng-invalid .btnsub {
 	background: gray;
@@ -250,6 +252,9 @@ a.mySubmit {
 			transform: rotate(3deg);
 			right: 10px;
 			left: auto;
+		}
+		.input100{
+			padding: 8px 10px;
 		}
 		.myFullInput {
 			width: 100%;

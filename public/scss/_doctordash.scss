@@ -148,6 +148,14 @@ a.mySubmit {
 	background: gray;
 	color:white;
 	transition: 0.4s ease-in-out all;
+	outline:none;
+	}
+	.ng-invalid-minlength{
+		border: 2px solid #e5e910;
+		outline:none;
+		// span{
+		// 	color:#e5e910;
+		// }
 	}
   h1{
     margin: 0px;

@@ -367,7 +367,11 @@ a.mySubmit {
   .testMain .ng-invalid .btnsub, .myMain .ng-invalid .btnsub {
     background: gray;
     color: white;
-    transition: 0.4s ease-in-out all; }
+    transition: 0.4s ease-in-out all;
+    outline: none; }
+  .testMain .ng-invalid-minlength, .myMain .ng-invalid-minlength {
+    border: 2px solid #e5e910;
+    outline: none; }
   .testMain h1, .myMain h1 {
     margin: 0px; }
   .testMain .testBlock, .myMain .testBlock {

@@ -141,7 +141,7 @@ block content
 							ng-required="true")
 							span.myWarning(ng-show="bloodTests.Cholesterol.$invalid && bloodTests.Cholesterol.$touched") You must enter a cholesterol levels
 							span.myWarning(ng-show="bloodTests.Cholesterol.$error.maxlength") Input cannot be more than 10 characters
-							
+
 							.myClear		
 							label.myLabel Blood Type
 							input.mySmallInput(placeholder="A, B, AB, O"
@@ -152,7 +152,7 @@ block content
 							ng-required="true")							
 							span.myWarning(ng-show="bloodTests.Type.$invalid && bloodTests.Type.$touched") You must enter a blood type
 							span.myWarning(ng-show="bloodTests.Type.$error.maxlength") Input cannot be more than 2 charatecters
-														
+
 							.myClear		
 							label.myLabel Glucose
 							input.mySmallInput(placeholder="mg/dL"
@@ -163,7 +163,7 @@ block content
 							ng-required="true")
 							span.myWarning(ng-show="bloodTests.Glucose.$invalid && bloodTests.Glucose.$touched") You must enter a glucose level
 							span.myWarning(ng-show="bloodTests.Glucose.$error.maxlength") Input cannot be more than 10 charatecters
-																	
+
 							.myClear		
 							label.myLabel CRP level
 							input.mySmallInput(placeholder="mg/L"
@@ -267,8 +267,17 @@ block content
 								span.myWarning(ng-show="medications.DateEnd.$invalid && medications.DateEnd.$touched") You must enter an end date
 							.myClear
 							label.myLabel Description
-							input.myFullInput
-							a.mySubmit(ng-show='showAddMedicationChoice(choice)', ng-click='addNewMedicationChoice()') Add another Medication
+							input.myFullInput(ng-model="med.description"
+							placeholder="Description"
+							type="text"
+							name="description"
+							ng-required="true"
+							ng-maxlength="50"
+							ng-minlength="20")
+							span.myWarning(ng-show="medications.description.$invalid && medications.description.$touched") You must enter a description
+							span.myWarning(ng-show="medications.description.$error.maxlength") Input cannot be more than 50 characters
+							span.myWarning(ng-show="medications.description.$error.minlength") Input must be atleast 20 characters
+							a.mySubmit.btnsub(ng-show='showAddMedicationChoice(choice)', ng-click='addNewMedicationChoice()') Add another Medication
 				a.mySubmit.pull-right Submit
 
 			#allergies.tab-pane.fade
@@ -287,37 +296,84 @@ block content
 							ng-required="true")
 							span.myWarning(ng-show="allergies.allergyName.$invalid && allergies.allergyName.$touched") You must enter an allergy name
 							span.myWarning(ng-show="allergies.allergyName.$error.maxlength") Input cannot be more than 12 characters
-							
+
 							.myClear
 							.mySmallBlock
 								label.control-label.myLabel Date Start
-								input(class="datepicker1 input50 form-control",type='date', ng-model="choice.datepicker1")
+								input(class="datepicker1 input50 form-control"
+								type="date"
+								name="DateStart" 
+								ng-model="allergy.datepicker1"
+								ng-required="true")
+								span.myWarning(ng-show="allergies.DateStart.$invalid && allergies.DateStart.$touched") You must enter a start date
+
 							.mySmallBlock
 								label.control-label.myLabel_last Date End
-								input.form-control.input50_last.datepicker2(type='date', ng-model="choice.datepicker2")
+								input.form-control.input50_last.datepicker2(type="date"
+								ng-model="allergy.datepicker2"
+								name="DateEnd"
+								ng-required="true")
+								span.myWarning(ng-show="allergies.DateEnd.$invalid && allergies.DateEnd.$touched") You must enter an end date
+
 							.myClear
 							label.myLabel Description
-							input.myFullInput(ng-model="choice.description")
-							a.mySubmit(ng-show='showAddAllergiesChoice(choice)', ng-click='addNewAllergiesChoice()') Add another Allergy
+							input.myFullInput(ng-model="allergy.description"
+							placeholder="Description"
+							type="text"
+							name="description"
+							ng-required="true"
+							ng-maxlength="50"
+							ng-minlength="20")
+							span.myWarning(ng-show="allergies.description.$invalid && allergies.description.$touched") You must enter a description
+							span.myWarning(ng-show="allergies.description.$error.maxlength") Input cannot be more than 50 characters
+							span.myWarning(ng-show="allergies.description.$error.minlength") Input must be atleast 20 characters
+							a.mySubmit.btnsub(ng-show='showAddAllergiesChoice(choice)', ng-click='addNewAllergiesChoice()') Add another Allergy
 				a.mySubmit.pull-right Submit
 			#immunizations.tab-pane.fade
 				h1 Immunizations
 				.myMain
 					.form-group(data-ng-repeat='choice in immunizationChoices')
-						.myBlock.immunization
+						form.myBlock.immunization(name="immunizations" novalidate)
 							label.myLabel Immunization Name
-							input.input100
+							input.input100(
+							placeholder="Immunization Name"
+							type="text" 
+							name="immunizationName" 
+							ng-model="immunization.name"
+							ng-maxlength="20" 
+							ng-required="true")
+							span.myWarning(ng-show="immunizations.immunizationName.$invalid && immunizations.immunizationName.$touched") You must enter an immunization name
+							span.myWarning(ng-show="immunizations.immunizationName.$error.maxlength") Input cannot be more than 20 characters
+
 							.myClear
 							.mySmallBlock
 								label.myLabel Date Recorded
-								input.input50
+								input.input50(type="date"
+								ng-model="immunization.datepicker1"
+								name="DateStart"
+								ng-required="true")
+								span.myWarning(ng-show="immunizations.DateStart.$invalid && immunizations.DateStart.$touched") You must enter a start date
 							.mySmallBlock
 								label.myLabel_last Date Expires
-								input.input50_last
+								input.input50_last(type="date"
+								ng-model="immunization.datepicker2"
+								name="DateEnd"
+								ng-required="true")
+								span.myWarning(ng-show="immunizations.DateEnd.$invalid && immunizations.DateEnd.$touched") You must enter an end date
 							.myClear
 							label.myLabel Description
-							input.myFullInput
-							a.mySubmit(ng-show='showAddImmunizationChoice(choice)', ng-click='addNewImmunizationChoice()') Add another Immunization
+							input.myFullInput(ng-model="immunization.description"
+							placeholder="Description"
+							type="text"
+							name="description"
+							ng-required="true"
+							ng-maxlength="50"
+							ng-minlength="20")
+							span.myWarning(ng-show="immunizations.description.$invalid && immunizations.description.$touched") You must enter a description
+							span.myWarning(ng-show="immunizations.description.$error.maxlength") Input cannot be more than 50 characters
+							span.myWarning(ng-show="immunizations.description.$error.minlength") Input must be atleast 20 characters
+
+							a.mySubmit.btnsub(ng-show='showAddImmunizationChoice(choice)', ng-click='addNewImmunizationChoice()') Add another Immunization
 				a.mySubmit.pull-right Submit
 			#history.tab-pane.fade
 				h1 History

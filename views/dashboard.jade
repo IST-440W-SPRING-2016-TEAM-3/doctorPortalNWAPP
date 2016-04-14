@@ -195,7 +195,7 @@ block content
 						//ennd test Imaging
 
 					.testBlock
-						h1 Endoscopy Tests
+						h1 Vital Tests
 						form(name='endpscpyTests' novalidate)
 						.mediumbox
 							label.myLabel Blood Pressure
@@ -205,10 +205,10 @@ block content
 						label.myLabel PSA Serum
 						input.mySmallInput(placeholder="1-4 ng/mL")								
 						.myClear		
-						label.myLabel Vision 20/20 20/40 etc..
+						label.myLabel Heart Rate
 						input.mySmallInput(placeholder="20/20 20/40 etc..")									
 						.myClear		
-						label.myLabel Label shit
+						label.myLabel Body Temperature
 						input.mySmallInput(placeholder="Something")
 						a.mySubmit.btnsub Submit	
 						//end test endoscopy
@@ -251,7 +251,7 @@ block content
 								label.myLabel Date Start
 								input.input50(
 									placeholder="mm/dd/yyyy"
-									type="text" 
+									type="date" 
 									name="DateStart" 
 									ng-model="med.DateStart" 
 									ng-required="true")
@@ -260,7 +260,7 @@ block content
 								label.myLabel_last Date End
 								input.input50_last(
 									placeholder="mm/dd/yyyy"
-									type="text" 
+									type="date" 
 									name="DateEnd" 
 									ng-model="med.DateEnd" 
 									ng-required="true")

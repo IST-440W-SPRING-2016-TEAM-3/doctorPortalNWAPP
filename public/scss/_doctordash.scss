@@ -149,6 +149,7 @@ a.mySubmit {
 	color:white;
 	transition: 0.4s ease-in-out all;
 	outline:none;
+	pointer-events: none;
 	}
 	.ng-invalid-minlength{
 		border: 2px solid #e5e910;

@@ -27,7 +27,7 @@ body {
   flex-flow: row;
   justify-content: flex-start;
   align-items: stretch;
-  padding-top: 43px; }
+  padding-top: 36px; }
   .mainBox .userNav {
     background: #0086D6;
     box-shadow: 7px 0 7px rgba(0, 0, 0, 0.4); }
@@ -94,8 +94,10 @@ p {
     text-decoration: none;
     padding: 0 1em; }
   .myNav li {
-    margin: 10px;
-    list-style-type: none; }
+    margin: 10px 0 0 0;
+    list-style-type: none;
+    border-bottom: solid 3px transparent;
+    transition: all 0.4s ease-out; }
     .myNav li:first-child {
       margin-right: auto; }
     .myNav li::after {
@@ -103,13 +105,15 @@ p {
       display: block;
       height: 3px;
       width: 0; }
-    .myNav li:hover:after {
-      width: 100%;
-      background: #00B7FF;
-      transition: width 0.4s ease-out; }
-    .myNav li:first-child:hover:after {
+    .myNav li:hover {
+      border-bottom: 3px solid #0086D6;
+      transition: all 0.4s ease-out; }
+    .myNav li:first-child:hover {
       margin-right: auto;
-      background: none; }
+      background: none;
+      border-bottom: none; }
+    .myNav li:last-child {
+      margin-right: 50px; }
 
 /* underline effect on the nav items */
 /* don't want to underline the logo with blue line*/
@@ -368,7 +372,8 @@ a.mySubmit {
     background: gray;
     color: white;
     transition: 0.4s ease-in-out all;
-    outline: none; }
+    outline: none;
+    pointer-events: none; }
   .testMain .ng-invalid-minlength, .myMain .ng-invalid-minlength {
     border: 2px solid #e5e910;
     outline: none; }

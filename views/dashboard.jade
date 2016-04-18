@@ -18,7 +18,7 @@ block content
 				li(role='presentation')
 					a(data-toggle="tab", href='#history') History Summary
 		.userContent.tab-content
-			angucomplete-alt#ex1(placeholder='Search Patients', pause='100', selected-object='selectedPatient', local-data='allUsers', search-fields='name', title-field='name', minlength='1', input-class='form-control form-control-small')
+			angucomplete-alt#ex1(placeholder='Search Patients', pause='100', selected-object='selectedPatient', local-data='allUsers', search-fields='name', title-field='name', minlength='1', input-class='form-control form-control-small input50_search')
 			#updateuserprofile.tab-pane.fade.in.active
 				h1 Update User
 				.mySmallBlock
@@ -127,6 +127,15 @@ block content
 							ng-maxlength="4")
 							span.myWarning(ng-show="urineTests.Gravity.$invalid && urineTests.Gravity.$touched") You must enter a number between 1.005-1.030
 							span.myWarning(ng-show="urineTests.Gravity.$error.maxlength") Input cannot be more than 4 characters
+							
+							.myClear
+							label.myLabel Date Recorded
+							input.mySmallInput(
+							type="date"
+							name="Date"
+							ng-model="urine.Date" 
+							ng-required="true")
+							span.myWarning(ng-show="urineTests.Date.$invalid && urineTests.Date.$touched") You must enter a date
 							a.mySubmit.btnsub Submit
 							//end urinetests
 
@@ -173,8 +182,17 @@ block content
 							ng-maxlength="10" 
 							ng-model="blood.CRP" 
 							ng-required="true")
-							span.myWarning(ng-show="bloodTests.CRP.$invalid && bloodTests.CRP.$touched") You must enter a glucose level
-							span.myWarning(ng-show="bloodTests.CRP.$error.maxlength") Input cannot be more than 10 charatecters						
+							span.myWarning(ng-show="bloodTests.CRP.$invalid && bloodTests.CRP.$touched") You must enter a CRP level
+							span.myWarning(ng-show="bloodTests.CRP.$error.maxlength") Input cannot be more than 10 charatecters
+							
+							.myClear
+							label.myLabel Date Recorded
+							input.mySmallInput(
+							type="date"
+							name="Date"
+							ng-model="blood.Date" 
+							ng-required="true")
+							span.myWarning(ng-show="bloodTests.Date.$invalid && bloodTests.Date.$touched") You must enter a date		
 							a.mySubmit.btnsub Submit									
 							//end blood tests
 
@@ -192,27 +210,83 @@ block content
 						.myClear		
 						label.myLabel Label shit
 						input.mySmallInput(placeholder="Something")
-						a.mySubmit.btnsub Submit						
+						
+						.myClear
+						label.myLabel Date Recorded
+						input.mySmallInput(
+						type="date"
+						name="Date"
+						ng-model="imaging.Date" 
+						ng-required="true")
+						span.myWarning(ng-show="imagingTests.Date.$invalid && imagingTests.Date.$touched") You must enter a date		
+						a.mySubmit.btnsub Submit							
 						//ennd test Imaging
 
 					.testBlock
 						h1 Vital Tests
-						form(name='endpscpyTests' novalidate)
-						.mediumbox
+						form(name="vitalTests" novalidate)
 							label.myLabel Blood Pressure
-							input.input50(placeholder="Diastolic")
-							input.input50_last.pull-left(placeholder="Systolic")
-						.myClear		
-						label.myLabel PSA Serum
-						input.mySmallInput(placeholder="1-4 ng/mL")								
-						.myClear		
-						label.myLabel Heart Rate
-						input.mySmallInput(placeholder="20/20 20/40 etc..")									
-						.myClear		
-						label.myLabel Body Temperature
-						input.mySmallInput(placeholder="Something")
-						a.mySubmit.btnsub Submit	
-						//end test endoscopy
+							input.input50(placeholder="Diastolic"
+							type="number" 
+							name="Diastolic"
+							ng-maxlength="3" 
+							ng-model="vital.Diastolic" 
+							ng-required="true")
+							span.myWarning(ng-show="vitalTests.Diastolic.$invalid && vitalTests.Diastolic.$touched") You must enter a diastolic pressure
+							span.myWarning(ng-show="vitalTests.Diastolic.$error.maxlength") Input cannot be more than 3 charatecters
+						
+							.myClear			
+							input.input50(placeholder="Systolic"
+							type="number" 
+							name="Systolic"
+							ng-maxlength="3" 
+							ng-model="vital.Systolic" 
+							ng-required="true")
+							span.myWarning(ng-show="vitalTests.Systolic.$invalid && vitalTests.Systolic.$touched") You must enter a systolic pressure
+							span.myWarning(ng-show="vitalTests.Systolic.$error.maxlength") Input cannot be more than 3 charatecters
+							
+							.myClear		
+							label.myLabel PSA Serum
+							input.mySmallInput(placeholder="1-4 ng/mL"
+							type="text" 
+							name="PSA"
+							ng-maxlength="10" 
+							ng-model="vital.PSA" 
+							ng-required="true")
+							span.myWarning(ng-show="vitalTests.PSA.$invalid && vitalTests.PSA.$touched") You must enter a PSA levels
+							span.myWarning(ng-show="vitalTests.PSA.$error.maxlength") Input cannot be more than 10 charatecters
+														
+							.myClear		
+							label.myLabel Heart Rate
+							input.mySmallInput(placeholder="# beats per min"
+							type="number" 
+						  name="heartRate"
+						  ng-maxlength="3" 
+						  ng-model="vital.heartRate"
+						  ng-required="true")
+							span.myWarning(ng-show="vitalTests.heartRate.$invalid && vitalTests.heartRate.$touched") You must enter a heart rate
+							span.myWarning(ng-show="vitalTests.heartRate.$error.maxlength") Input cannot be more than 3 charatecters										
+							.myClear		
+							label.myLabel Body Temperature
+							input.mySmallInput(placeholder="Degrees Fereinheit"
+							type="number" 
+						  name="Bodytemp"
+						  ng-maxlength="3" 
+						  ng-model="vital.Bodytemp"
+						  ng-required="true")
+							span.myWarning(ng-show="vitalTests.Bodytemp.$invalid && vitalTests.Bodytemp.$touched") You must enter a body temperate
+							span.myWarning(ng-show="vitalTests.Bodytemp.$error.maxlength") Input cannot be more than 3 charatecters		
+							
+							.myClear
+							label.myLabel Date Recorded
+							input.mySmallInput(
+							type="date"
+							name="Date"
+							ng-model="vital.Date" 
+							ng-required="true")
+							span.myWarning(ng-show="vitalTests.Date.$invalid && vitalTests.Date.$touched") You must enter a date		
+							a.mySubmit.btnsub Submit				
+							//end test endoscopy
 
 			#medications.tab-pane.fade
 				h1 Medications

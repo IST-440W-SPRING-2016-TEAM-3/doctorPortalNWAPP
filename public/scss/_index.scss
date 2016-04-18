@@ -45,8 +45,10 @@ p {
 		padding: 0 1em;
 	}
 	li {
-		margin: 10px;
+		margin: 10px 0 0 0;
 		list-style-type: none;
+		border-bottom: solid 3px transparent;
+		transition: all 0.4s ease-out;
 		&:first-child {
 			margin-right: auto;
 		}
@@ -56,14 +58,17 @@ p {
 			height: 3px;
 			width: 0;
 		}
-		&:hover:after {
-			width: 100%;
-			background: #00B7FF;
-			transition: width 0.4s ease-out;
+		&:hover {
+			border-bottom: 3px solid #0086D6;
+			transition: all 0.4s ease-out;
 		}
-		&:first-child:hover:after {
+		&:first-child:hover {
 			margin-right: auto;
 			background: none;
+			border-bottom: none;
+		}
+		&:last-child{
+			margin-right: 50px;
 		}
 	}
 }

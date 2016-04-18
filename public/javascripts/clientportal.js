@@ -1,15 +1,10 @@
 (function(angular, undefined) {
-	angular.module("clientportal", [])
+	angular.module("clientportal", ["angucomplete-alt"])
 
 	.controller("main", ['$scope', '$http', function($scope, $http) {
 		$scope.getLocation = function() {
 			return document.cookie;
 		};
-
-		// $scope.choices = [{
-		// 	id: 'choice1'
-		// }];
-
 		$scope.allergyChoices = [{
 			id: 'choice1'
 		}];
@@ -19,16 +14,6 @@
 		$scope.immunizationChoices = [{
 			id: 'choice1'
 		}];
-		// $scope.addNewChoice = function() {
-		// 	var newItemNo = $scope.choices.length + 1;
-		// 	$scope.choices.push({
-		// 		'id': 'choice' + newItemNo
-		// 	});
-		// };
-		//
-		// $scope.showAddChoice = function(choice) {
-		// 	return choice.id === $scope.choices[$scope.choices.length - 1].id;
-		// };
 
 		$scope.addNewAllergiesChoice = function() {
 			var newItemNo = $scope.allergyChoices.length + 1;
@@ -60,12 +45,41 @@
 		};
 
 		$scope.showAddImmunizationChoice = function(choice) {
-			return choice.id === $scope.immunizationChoices[$scope.immunizationChoices.length - 1].id;
+			return choice.id === $scope.immunizationChoices[$scope.allergyChoices.length - 1].id;
 		};
 
-		$('.datepicker1').datepicker({});
+		function getUserData(UUID) {
+			var uuid = UUID;
+			$http({ method: 'GET', url: "http://127.0.0.1:8000/api/userdata"}).then(function successCallback(response) { $scope.user = response.data;});
+		}
 
-		$('.datepicker2').datepicker({});
+		$http({
+				method: 'GET',
+				url: "http://127.0.0.1:8000/api/users"
+			})
+			.then(function successCallback(response) {
+				var allUsers = response.data;
+
+				$scope.allUsers = [];
+				for (var keys in allUsers) {
+					$scope.allUsers[keys] = {};
+					$scope.allUsers[keys].uuid = allUsers[keys].uuid;
+					$scope.allUsers[keys].name = allUsers[keys].firstname + " " + allUsers[keys].lastname;
+				}
+			});
+
+		$scope.$watch('selectedPatient.title', function(newValue, oldValue) {
+			if(newValue === undefined){
+				$scope.user = {};
+			}
+			for(var names in $scope.allUsers){
+				if(newValue === $scope.allUsers[names].name){
+					getUserData($scope.allUsers[names].uuid);
+				}
+			}
+		});
+
+
 	}])
 
 	.directive('nawAppointmentsTable', ['$compile', '$http', function($compile, $http) {

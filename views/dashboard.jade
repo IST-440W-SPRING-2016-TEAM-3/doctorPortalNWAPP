@@ -6,7 +6,7 @@ block content
 		.userNav
 			ul.dashNav
 				li.active(role='presentation')
-					a(data-toggle="tab", href='#createuserprofile') Create User
+					a(data-toggle="tab", href='#updateuserprofile') Update User
 				li(role='presentation')
 					a(data-toggle="tab", href='#testresults') Test Results
 				li(role='presentation')
@@ -17,9 +17,10 @@ block content
 					a(data-toggle="tab", href='#immunizations') Immunizations
 				li(role='presentation')
 					a(data-toggle="tab", href='#history') History Summary
-		.userContent.tab-content						
-			#createuserprofile.tab-pane.fade.in.active
-				h1 Create User
+		.userContent.tab-content
+			angucomplete-alt#ex1(placeholder='Search Patients', pause='100', selected-object='selectedPatient', local-data='allUsers', search-fields='name', title-field='name', minlength='1', input-class='form-control form-control-small')
+			#updateuserprofile.tab-pane.fade.in.active
+				h1 Update User
 				.mySmallBlock
 					label.myLabel First Name *
 					input.mySmallInput(ng-model="user.firstname")
@@ -32,11 +33,11 @@ block content
 					input.mySmallInput(type='email', ng-model="user.email")  
 				.mySmallBlock
 					label.myLabel Phone
-					input.mySmallInput(type='number', ng-model="user.phone")
+					input.mySmallInput(ng-model="user.phone")
 				.myClear
 				.mySmallBlock
 					label.myLabel Street Address
-					input.mySmallInput(ng-model="user.street")
+					input.mySmallInput(ng-model="user.streetaddress")
 				.mySmallBlock
 					label.myLabel City
 					input.mySmallInput(ng-model="user.city")
@@ -56,27 +57,27 @@ block content
 					label.myLabel Gender
 					input.myRadio(type='radio', name='gender', value='male', ng-model="gender")
 					| Male
-					input.myRadio(type='radio', name='gender', value='male', ng-model="gender")
+					input.myRadio(type='radio', name='gender', value='female', ng-model="gender")
 					| Female
 					input.myRadio(type='radio', name='gender', value='male')
 					| Other
 				.myXSmallBlock
 					label.myLabel Height
-					input.mySmallInput
+					input.mySmallInput(ng-model="user.height")
 				.myXSmallBlock
 					label.myLabel Weight
-					input.mySmallInput
+					input.mySmallInput(ng-model="user.weight")
 
 				.myClear
 				.mySmallBlock
 					label.myLabel Primary Insurance
-					input.mySmallInput
+					input.mySmallInput(ng-model="user.primaryinsurance")
 				.mySmallBlock
 					label.myLabel Primary Pharmacy
-					input.mySmallInput
+					input.mySmallInput(ng-model="user.primarypharmacy")
 				.myMediumBlock
 					label.myLabel Comment
-					input.myFullInput								
+					input.myFullInput(ng-model="user.comment")							
 
 			#testresults.tab-pane.fade
 				h1 Test Results

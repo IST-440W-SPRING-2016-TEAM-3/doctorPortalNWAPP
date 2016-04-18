@@ -27,7 +27,7 @@ body {
   flex-flow: row;
   justify-content: flex-start;
   align-items: stretch;
-  padding-top: 43px; }
+  padding-top: 36px; }
   .mainBox .userNav {
     background: #0086D6;
     box-shadow: 7px 0 7px rgba(0, 0, 0, 0.4); }
@@ -94,8 +94,10 @@ p {
     text-decoration: none;
     padding: 0 1em; }
   .myNav li {
-    margin: 10px;
-    list-style-type: none; }
+    margin: 10px 0 0 0;
+    list-style-type: none;
+    border-bottom: solid 3px transparent;
+    transition: all 0.4s ease-out; }
     .myNav li:first-child {
       margin-right: auto; }
     .myNav li::after {
@@ -103,13 +105,15 @@ p {
       display: block;
       height: 3px;
       width: 0; }
-    .myNav li:hover:after {
-      width: 100%;
-      background: #00B7FF;
-      transition: width 0.4s ease-out; }
-    .myNav li:first-child:hover:after {
+    .myNav li:hover {
+      border-bottom: 3px solid #0086D6;
+      transition: all 0.4s ease-out; }
+    .myNav li:first-child:hover {
       margin-right: auto;
-      background: none; }
+      background: none;
+      border-bottom: none; }
+    .myNav li:last-child {
+      margin-right: 50px; }
 
 /* underline effect on the nav items */
 /* don't want to underline the logo with blue line*/
@@ -346,26 +350,72 @@ a.mySubmit {
   margin-top: 5px;
   text-decoration: none;
   cursor: pointer;
-  display: inline-block; }
+  display: inline-block;
+  transition: 0.4s ease-in-out all; }
 
 .testMain, .myMain {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start; }
+  .testMain .myWarning, .myMain .myWarning {
+    color: red;
+    font-style: italic;
+    display: block; }
+  .testMain input.ng-invalid.ng-touched, .myMain input.ng-invalid.ng-touched {
+    border: 2px solid #DA3637;
+    outline: none; }
+  .testMain input.ng-valid.ng-touched, .myMain input.ng-valid.ng-touched {
+    border: 2px solid #509D12;
+    outline: none; }
+  .testMain .ng-invalid .btnsub, .myMain .ng-invalid .btnsub {
+    background: gray;
+    color: white;
+    transition: 0.4s ease-in-out all;
+    outline: none;
+    pointer-events: none; }
+  .testMain .ng-invalid-minlength, .myMain .ng-invalid-minlength {
+    border: 2px solid #e5e910;
+    outline: none; }
   .testMain h1, .myMain h1 {
     margin: 0px; }
   .testMain .testBlock, .myMain .testBlock {
     border: solid 2px #DDD;
     top: 0;
+    background-color: white;
     transition: top 0.2s ease;
     position: relative;
     height: auto;
     margin: 0em 1em 1em 0px;
     padding: 10px;
     width: 40%; }
+    .testMain .testBlock:hover:before, .myMain .testBlock:hover:before, .testMain .testBlock:hover:after, .myMain .testBlock:hover:after {
+      z-index: -1;
+      position: absolute;
+      content: "";
+      bottom: 15px;
+      left: 10px;
+      width: 50%;
+      top: 80%;
+      max-width: 300px;
+      background: #777;
+      -webkit-box-shadow: 0 15px 10px #777;
+      -moz-box-shadow: 0 15px 10px #777;
+      box-shadow: 0 15px 10px #777;
+      -webkit-transform: rotate(-3deg);
+      -moz-transform: rotate(-3deg);
+      -o-transform: rotate(-3deg);
+      -ms-transform: rotate(-3deg);
+      transform: rotate(-3deg); }
+    .testMain .testBlock:hover:after, .myMain .testBlock:hover:after {
+      -webkit-transform: rotate(3deg);
+      -moz-transform: rotate(3deg);
+      -o-transform: rotate(3deg);
+      -ms-transform: rotate(3deg);
+      transform: rotate(3deg);
+      right: 10px;
+      left: auto; }
     .testMain .testBlock:hover, .myMain .testBlock:hover {
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
       top: -5px;
       cursor: default; }
     .testMain .testBlock h1, .myMain .testBlock h1 {
@@ -386,7 +436,36 @@ a.mySubmit {
   position: relative;
   height: auto;
   margin-right: 1em;
-  padding: 10px; }
+  padding: 10px;
+  background-color: white; }
+  .myMain .myBlock:hover:before, .myMain .myBlock:hover:after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width: 300px;
+    background: #777;
+    -webkit-box-shadow: 0 15px 10px #777;
+    -moz-box-shadow: 0 15px 10px #777;
+    box-shadow: 0 15px 10px #777;
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    transform: rotate(-3deg); }
+  .myMain .myBlock:hover:after {
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto; }
+  .myMain .myBlock .input100 {
+    padding: 8px 10px; }
   .myMain .myBlock .myFullInput {
     width: 100%;
     height: 100px; }
@@ -396,7 +475,6 @@ a.mySubmit {
     width: 50%;
     margin-right: 0; }
   .myMain .myBlock:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
     top: -5px;
     cursor: default; }
   .myMain .myBlock.allergy {

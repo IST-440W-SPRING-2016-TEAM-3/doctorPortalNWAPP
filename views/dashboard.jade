@@ -224,7 +224,7 @@ block content
 								placeholder="Medication Name"
 								type="text" 
 								name="Medname" 
-								ng-model="med.name" 
+								ng-model="choice.name" 
 								ng-required="true")
 							span.myWarning(ng-show="medications.Medname.$invalid && medications.Medname.$touched") You must enter a medication name	
 							.myClear
@@ -234,7 +234,7 @@ block content
 								placeholder="mg, g, etc.."
 								type="text" 
 								name="Dosage" 
-								ng-model="med.dosage" 
+								ng-model="choice.dosage" 
 								ng-required="true")
 							span.myWarning(ng-show="medications.Dosage.$invalid && medications.Dosage.$touched") You must enter a dosage	
 							.myClear
@@ -244,7 +244,7 @@ block content
 								placeholder="Frequency"
 								type="text" 
 								name="Frequency" 
-								ng-model="med.frequency" 
+								ng-model="choice.frequency" 
 								ng-required="true")
 							span.myWarning(ng-show="medications.Frequency.$invalid && medications.Frequency.$touched") You must enter a frequency
 							.myClear
@@ -254,7 +254,7 @@ block content
 									placeholder="mm/dd/yyyy"
 									type="date" 
 									name="DateStart" 
-									ng-model="med.DateStart" 
+									ng-model="choice.DateStart" 
 									ng-required="true")
 								span.myWarning(ng-show="medications.DateStart.$invalid && medications.DateStart.$touched") You must enter a start date
 							.mySmallBlock									
@@ -263,7 +263,7 @@ block content
 									placeholder="mm/dd/yyyy"
 									type="date" 
 									name="DateEnd" 
-									ng-model="med.DateEnd" 
+									ng-model="choice.DateEnd" 
 									ng-required="true")
 								span.myWarning(ng-show="medications.DateEnd.$invalid && medications.DateEnd.$touched") You must enter an end date
 							.myClear

@@ -6,13 +6,13 @@
 			return document.cookie;
 		};
 		$scope.allergyChoices = [{
-			id: 'choice1'
+			id: 'choice0'
 		}];
 		$scope.medicationChoices = [{
-			id: 'choice1'
+			id: 'choice0'
 		}];
 		$scope.immunizationChoices = [{
-			id: 'choice1'
+			id: 'choice0'
 		}];
 
 		$scope.addNewAllergiesChoice = function() {

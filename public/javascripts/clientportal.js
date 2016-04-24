@@ -133,6 +133,31 @@
 				});
 		}
 
+		function getTestResultData(UUID) {
+			var uuid = UUID;
+			$http({
+					method: 'GET',
+					url: "http://127.0.0.1:8000/api/usertestresult"
+				})
+				.then(function successCallback(response) {
+					if(response && response.data && response.data.length !== 0){
+						for(var results in response.data){
+							var testtype = response.data[results].testtype;
+							if(testtype === "urine"){
+								response.data[results].date = new Date(response.data[results].date);
+								$scope.urine = response.data[results];
+							} else if(testtype === "blood"){
+								response.data[results].date = new Date(response.data[results].date);
+								$scope.blood = response.data[results];
+							} else {
+								response.data[results].date = new Date(response.data[results].date);
+								$scope.vital = response.data[results];
+							}
+						}
+					}
+				});
+		}
+
 		function putImmunzationData(updateImmunizationData){
 			$http({
 					method: 'PUT',
@@ -205,12 +230,40 @@
 			}
 		};
 
+		$scope.submitTest = function(testtype){
+			var testType = testtype;
+
+			var typeScopeValue = {
+				"urine": $scope.urine,
+				"blood": $scope.blood,
+				"vital": $scope.vital
+			};
+
+			$http({
+					method: 'PUT',
+					url: 'http://127.0.0.1:8000/api/usertestresult',
+					data: typeScopeValue[testType],
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+				.then(function successCallback(response) {
+					if (response.status === 200) {
+						location.href = "/";
+					}
+				});
+
+		};
+
 		$scope.$watch('selectedPatient.title', function(newValue, oldValue) {
 			if(newValue === undefined){
 				$scope.user = {};
 				$scope.medicationChoices = [];
 				$scope.allergyChoices = [];
 				$scope.immunizationChoices = [];
+				$scope.urine = {};
+				$scope.blood = {};
+				$scope.vital = {};
 			}
 			for(var names in $scope.allUsers){
 				if(newValue === $scope.allUsers[names].name){
@@ -218,6 +271,7 @@
 					getMedicationData($scope.allUsers[names].uuid);
 					getAllergyData($scope.allUsers[names].uuid);
 					getImmunizationData($scope.allUsers[names].uuid);
+					getTestResultData($scope.allUsers[names].uuid);
 				}
 			}
 		});

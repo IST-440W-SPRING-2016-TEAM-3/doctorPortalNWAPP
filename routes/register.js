@@ -14,6 +14,7 @@ router.post('/', function(req, res, next) {
     userData.firstName = data.fname;
     userData.lastName = data.lname;
     userData.email = data.email;
+    userData.useraccess = data.useraccess;
     userData.password = data.pass;
     userData.passconf = data.passconf;
 

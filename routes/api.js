@@ -28,106 +28,96 @@ router.get('/users', function(req, res, next) {
 	}
 });
 
-router.get('/userdata', function(req, res, next) {
+router.get('/userdata/:id', function(req, res, next) {
 	if (reqChecker !== 0) {
-		var uuid = req.session.uuid;
-		var args = {
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		};
-		request("http://127.0.0.1:9000/userdata/" + uuid, args, function(error, response, body) {
-			if (!error && response.statusCode == 200) {
-				res.send(body);
-			}
-		});
+		var uuid = req.params.id;
+		request({
+				url: "http://127.0.0.1:9000/userdata/" + uuid,
+				method: 'GET'
+			},
+			function(error, response, body) {
+				if (!error && response.statusCode == 200) {
+					res.send(body);
+				}
+			});
 	} else {
 		res.redirect('/');
 	}
 });
 
-router.get('/usermedicines', function(req, res, next) {
-	var uuid = req.session.uuid;
+router.get('/usermedicines/:id', function(req, res, next) {
 	if (reqChecker !== 0) {
-		var args = {
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		};
-		request("http://127.0.0.1:9000/usermedicines/" + uuid, args, function(error, response, body) {
-			if (!error && response.statusCode == 200) {
-				res.send(body);
-			}
-		});
+		var uuid = req.params.id;
+		request({
+				url: "http://127.0.0.1:9000/usermedicines/" + uuid,
+				method: 'GET'
+			},
+			function(error, response, body) {
+				if (!error && response.statusCode == 200) {
+					res.send(body);
+				}
+			});
 	} else {
 		res.redirect('/');
 	}
 });
 
-router.get('/userallergies', function(req, res, next) {
-	var uuid = req.session.uuid;
+router.get('/userallergies/:id', function(req, res, next) {
 	if (reqChecker !== 0) {
-		var args = {
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		};
-		request("http://127.0.0.1:9000/userallergies/" + uuid, args, function(error, response, body) {
-			if (!error && response.statusCode == 200) {
-				res.send(body);
-			}
-		});
+		var uuid = req.params.id;
+		request({
+				url: "http://127.0.0.1:9000/userallergies/" + uuid,
+				method: 'GET'
+			},
+			function(error, response, body) {
+				if (!error && response.statusCode == 200) {
+					res.send(body);
+				}
+			});
 	} else {
 		res.redirect('/');
 	}
 });
 
-router.get('/userimmunization', function(req, res, next) {
-	var uuid = req.session.uuid;
+router.get('/userimmunization/:id', function(req, res, next) {
 	if (reqChecker !== 0) {
-		var args = {
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		};
-		request("http://127.0.0.1:9000/userimmunization/" + uuid, args, function(error, response, body) {
-			if (!error && response.statusCode == 200) {
-				res.send(body);
-			}
-		});
+		var uuid = req.params.id;
+		request({
+				url: "http://127.0.0.1:9000/userimmunization/" + uuid,
+				method: 'GET'
+			},
+			function(error, response, body) {
+				if (!error && response.statusCode == 200) {
+					res.send(body);
+				}
+			});
 	} else {
 		res.redirect('/');
 	}
 });
 
-router.get('/usertestresult', function(req, res, next) {
-	var uuid = req.session.uuid;
+router.get('/usertestresult/:id', function(req, res, next) {
 	if (reqChecker !== 0) {
-		var args = {
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		};
-		request("http://127.0.0.1:9000/usertestresult/" + uuid, args, function(error, response, body) {
-			if (!error && response.statusCode == 200) {
-				res.send(body);
-			}
-		});
+		var uuid = req.params.id;
+		request({
+				url: "http://127.0.0.1:9000/usertestresult/" + uuid,
+				method: 'GET'
+			},
+			function(error, response, body) {
+				if (!error && response.statusCode == 200) {
+					res.send(body);
+				}
+			});
 	} else {
 		res.redirect('/');
 	}
 });
 
-router.put('/userimmunization', function(req, res, next) {
+router.put('/userimmunization/:id', function(req, res, next) {
 
 	if (reqChecker !== 0) {
-		var uuid = req.session.uuid;
-
-		var args = {
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		};
+		var uuid = req.params.id;
+		console.log(uuid);
 		request({
 				url: "http://127.0.0.1:9000/userimmunization/" + uuid,
 				method: 'PUT',
@@ -143,16 +133,11 @@ router.put('/userimmunization', function(req, res, next) {
 	}
 });
 
-router.put('/usermedicines', function(req, res, next) {
+router.put('/usermedicines/:id', function(req, res, next) {
 
 	if (reqChecker !== 0) {
-		var uuid = req.session.uuid;
-
-		var args = {
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		};
+		var uuid = req.params.id;
+		console.log(uuid);
 		request({
 				url: "http://127.0.0.1:9000/usermedicines/" + uuid,
 				method: 'PUT',
@@ -168,16 +153,11 @@ router.put('/usermedicines', function(req, res, next) {
 	}
 });
 
-router.put('/userallergies', function(req, res, next) {
+router.put('/userallergies/:id', function(req, res, next) {
 
 	if (reqChecker !== 0) {
-		var uuid = req.session.uuid;
-
-		var args = {
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		};
+		var uuid = req.params.id;
+		console.log(uuid);
 		request({
 				url: "http://127.0.0.1:9000/userallergies/" + uuid,
 				method: 'PUT',
@@ -193,16 +173,11 @@ router.put('/userallergies', function(req, res, next) {
 	}
 });
 
-router.put('/usertestresult', function(req, res, next) {
+router.put('/usertestresult/:id', function(req, res, next) {
 
 	if (reqChecker !== 0) {
-		var uuid = req.session.uuid;
-
-		var args = {
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		};
+		var uuid = req.params.id;
+		console.log(uuid);
 		request({
 				url: "http://127.0.0.1:9000/usertestresult/" + uuid,
 				method: 'PUT',

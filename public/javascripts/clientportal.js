@@ -2,6 +2,10 @@
 	angular.module("clientportal", ["angucomplete-alt"])
 
 	.controller("main", ['$scope', '$http', function($scope, $http) {
+		$scope.allergyChoices = [];
+		$scope.medicationChoices = [];
+		$scope.immunizationChoices = [];
+
 		$http({
 				method: 'GET',
 				url: "http://127.0.0.1:8000/api/users"
@@ -20,69 +24,84 @@
 		$scope.getLocation = function() {
 			return document.cookie;
 		};
-		$scope.allergyChoices = [];
-		$scope.medicationChoices = [];
-		$scope.immunizationChoices = [];
 
-		$scope.addNewAllergiesChoice = function() {
-			var newItemNo = $scope.allergyChoices.length + 1;
-			$scope.allergyChoices.push({
-				'id': 'choice' + newItemNo
-			});
+		$scope.addNewChoice = function(type) {
+			var types = {
+					"allergy": $scope.allergyChoices.length + 1,
+					"medication": $scope.medicationChoices.length + 1,
+					"immunization": $scope.immunizationChoices.length + 1
+				},
+				newItemNo = types[type];
+
+			switch (type) {
+				case "allergy":
+					$scope.allergyChoices.push({
+						'id': 'choice' + newItemNo
+					});
+					break;
+				case "medication":
+					$scope.medicationChoices.push({
+						'id': 'choice' + newItemNo
+					});
+					break;
+				case "immunization":
+					$scope.immunizationChoices.push({
+						'id': 'choice' + newItemNo
+					});
+					break;
+			}
 		};
 
-		$scope.addNewMedicationChoice = function() {
-			var newItemNo = $scope.medicationChoices.length + 1;
-			$scope.medicationChoices.push({
-				'id': 'choice' + newItemNo
-			});
-		};
+		$scope.addChoice = function(choice, type) {
+			var types = {
+				"allergy": $scope.allergyChoices.length + 1,
+				"medication": $scope.medicationChoices.length + 1,
+				"immunization": $scope.immunizationChoices.length + 1
+			};
 
-		$scope.addNewImmunizationChoice = function() {
-			var newItemNo = $scope.immunizationChoices.length + 1;
-			$scope.immunizationChoices.push({
-				'id': 'choice' + newItemNo
-			});
-		};
-
-		$scope.showAddAllergiesChoice = function(choice) {
-			return choice.id === $scope.allergyChoices[$scope.allergyChoices.length - 1].id;
-		};
-
-		$scope.showAddMedicationChoice = function(choice) {
-			return choice.id === $scope.medicationChoices[$scope.medicationChoices.length - 1].id;
-		};
-
-		$scope.showAddImmunizationChoice = function(choice) {
-			return choice.id === $scope.immunizationChoices[$scope.immunizationChoices.length - 1].id;
+			switch (type) {
+				case "allergy":
+					return choice.id === $scope.allergyChoices[$scope.allergyChoices.length - 1].id;
+				case "medication":
+					return choice.id === $scope.medicationChoices[$scope.medicationChoices.length - 1].id;
+				case "immunization":
+					return choice.id === $scope.immunizationChoices[$scope.immunizationChoices.length - 1].id;
+			}
 		};
 
 		function getUserData(UUID) {
 			var uuid = UUID;
-			$http({ method: 'GET', url: "http://127.0.0.1:8000/api/userdata"}).then(function successCallback(response) { $scope.user = response.data;});
+			$http({
+				method: 'GET',
+				url: "http://127.0.0.1:8000/api/userdata/" + uuid
+			}).then(function successCallback(response) {
+				$scope.user = response.data;
+			});
 		}
 
 		function getMedicationData(UUID) {
 			var uuid = UUID;
 			$http({
 					method: 'GET',
-					url: "http://127.0.0.1:8000/api/usermedicines"
+					url: "http://127.0.0.1:8000/api/usermedicines/" + uuid
 				})
 				.then(function successCallback(response) {
-					if(response && response.data && response.data.length !== 0){
-						for(var medicines = 0; medicines < response.data.length; medicines++){
+					if (response && response.data && response.data.length !== 0) {
+						for (var medicines = 0; medicines < response.data.length; medicines++) {
 							$scope.medicationChoices.push({
 								id: 'choice' + medicines,
-								name : response.data[medicines].name,
-								dosage : response.data[medicines].dosage,
-								frequency : response.data[medicines].frequency,
-								datestart : new Date(response.data[medicines].datestart),
-								dateend : new Date(response.data[medicines].dateend),
-								description : response.data[medicines].description
+								name: response.data[medicines].name,
+								dosage: response.data[medicines].dosage,
+								frequency: response.data[medicines].frequency,
+								datestart: new Date(response.data[medicines].datestart),
+								dateend: new Date(response.data[medicines].dateend),
+								description: response.data[medicines].description
 							});
 						}
 					} else {
-						$scope.medicationChoices.push({id:'choice' + 0});
+						$scope.medicationChoices.push({
+							id: 'choice' + 0
+						});
 					}
 				});
 		}
@@ -91,21 +110,23 @@
 			var uuid = UUID;
 			$http({
 					method: 'GET',
-					url: "http://127.0.0.1:8000/api/userallergies"
+					url: "http://127.0.0.1:8000/api/userallergies/" + uuid
 				})
 				.then(function successCallback(response) {
-					if(response && response.data && response.data.length !== 0){
-						for(var allergies = 0; allergies < response.data.length; allergies++){
+					if (response && response.data && response.data.length !== 0) {
+						for (var allergies = 0; allergies < response.data.length; allergies++) {
 							$scope.allergyChoices.push({
 								id: 'choice' + allergies,
-								name : response.data[allergies].name,
-								datestart : new Date(response.data[allergies].startdate),
-								dateend : new Date(response.data[allergies].enddate),
-								description : response.data[allergies].description
+								name: response.data[allergies].name,
+								datestart: new Date(response.data[allergies].startdate),
+								dateend: new Date(response.data[allergies].enddate),
+								description: response.data[allergies].description
 							});
 						}
 					} else {
-						$scope.allergyChoices.push({id:'choice' + 0});
+						$scope.allergyChoices.push({
+							id: 'choice' + 0
+						});
 					}
 				});
 		}
@@ -114,21 +135,23 @@
 			var uuid = UUID;
 			$http({
 					method: 'GET',
-					url: "http://127.0.0.1:8000/api/userimmunization"
+					url: "http://127.0.0.1:8000/api/userimmunization/" + uuid
 				})
 				.then(function successCallback(response) {
-					if(response && response.data && response.data.length !== 0){
-						for(var immunizations = 0; immunizations < response.data.length; immunizations++){
+					if (response && response.data && response.data.length !== 0) {
+						for (var immunizations = 0; immunizations < response.data.length; immunizations++) {
 							$scope.immunizationChoices.push({
 								id: 'choice' + immunizations,
-								name : response.data[immunizations].name,
-								dateimmunized : new Date(response.data[immunizations].dateimmunized),
-								dateexpired : new Date(response.data[immunizations].dateexpired),
-								description : response.data[immunizations].description
+								name: response.data[immunizations].name,
+								dateimmunized: new Date(response.data[immunizations].dateimmunized),
+								dateexpired: new Date(response.data[immunizations].dateexpired),
+								description: response.data[immunizations].description
 							});
 						}
 					} else {
-						$scope.immunizationChoices.push({id:'choice' + 0});
+						$scope.immunizationChoices.push({
+							id: 'choice' + 0
+						});
 					}
 				});
 		}
@@ -137,16 +160,17 @@
 			var uuid = UUID;
 			$http({
 					method: 'GET',
-					url: "http://127.0.0.1:8000/api/usertestresult"
+					url: "http://127.0.0.1:8000/api/usertestresult/" + uuid
 				})
 				.then(function successCallback(response) {
-					if(response && response.data && response.data.length !== 0){
-						for(var results in response.data){
+					console.log(response.data);
+					if (response && response.data && response.data.length !== 0) {
+						for (var results in response.data) {
 							var testtype = response.data[results].testtype;
-							if(testtype === "urine"){
+							if (testtype === "urine") {
 								response.data[results].date = new Date(response.data[results].date);
 								$scope.urine = response.data[results];
-							} else if(testtype === "blood"){
+							} else if (testtype === "blood") {
 								response.data[results].date = new Date(response.data[results].date);
 								$scope.blood = response.data[results];
 							} else {
@@ -158,10 +182,12 @@
 				});
 		}
 
-		function putImmunzationData(updateImmunizationData){
+		function putImmunzationData(updateImmunizationData) {
+			var uuid = $scope.selectedUserUUID;
+
 			$http({
 					method: 'PUT',
-					url: 'http://127.0.0.1:8000/api/userimmunization',
+					url: 'http://127.0.0.1:8000/api/userimmunization/' + uuid,
 					data: updateImmunizationData,
 					headers: {
 						'Content-Type': 'application/json'
@@ -174,10 +200,12 @@
 				});
 		}
 
-		function putMedicationData(updatedMedicineData){
+		function putMedicationData(updatedMedicineData) {
+			var uuid = $scope.selectedUserUUID;
+
 			$http({
 					method: 'PUT',
-					url: 'http://127.0.0.1:8000/api/usermedicines',
+					url: 'http://127.0.0.1:8000/api/usermedicines/' + uuid,
 					data: updatedMedicineData,
 					headers: {
 						'Content-Type': 'application/json'
@@ -190,10 +218,13 @@
 				});
 		}
 
-		function putAllergyData(updateAllergyData){
+		function putAllergyData(updateAllergyData) {
+			var uuid = $scope.selectedUserUUID;
+
+			console.log("allergy", uuid);
 			$http({
 					method: 'PUT',
-					url: 'http://127.0.0.1:8000/api/userallergies',
+					url: 'http://127.0.0.1:8000/api/userallergies/' + uuid,
 					data: updateAllergyData,
 					headers: {
 						'Content-Type': 'application/json'
@@ -206,31 +237,31 @@
 				});
 		}
 
-		$scope.submitImmunization = function(){
+		$scope.submitImmunization = function() {
 			var updatedUserData = $scope.immunizationChoices;
 
-			for(var keys in updatedUserData){
+			for (var keys in updatedUserData) {
 				putImmunzationData(updatedUserData[keys]);
 			}
 		};
 
-		$scope.submitMecicine = function(){
+		$scope.submitMecicine = function() {
 			var updatedUserData = $scope.medicationChoices;
 
-			for(var keys in updatedUserData){
+			for (var keys in updatedUserData) {
 				putMedicationData(updatedUserData[keys]);
 			}
 		};
 
-		$scope.submitAllergy = function(){
+		$scope.submitAllergy = function() {
 			var updatedUserData = $scope.allergyChoices;
 
-			for(var keys in updatedUserData){
+			for (var keys in updatedUserData) {
 				putAllergyData(updatedUserData[keys]);
 			}
 		};
 
-		$scope.submitTest = function(testtype){
+		$scope.submitTest = function(testtype) {
 			var testType = testtype;
 
 			var typeScopeValue = {
@@ -239,9 +270,26 @@
 				"vital": $scope.vital
 			};
 
+			switch (testType) {
+				case "urine":
+					typeScopeValue[testType].testtype = "urine";
+					console.log(typeScopeValue[testType].testtype);
+					break;
+				case "blood":
+					typeScopeValue[testType].testtype = "blood";
+					console.log(typeScopeValue[testType].testtype);
+					break;
+				case "vital":
+					typeScopeValue[testType].testtype = "vital";
+					console.log(typeScopeValue[testType].testtype);
+					break;
+			}
+
+			var uuid = $scope.selectedUserUUID;
+
 			$http({
 					method: 'PUT',
-					url: 'http://127.0.0.1:8000/api/usertestresult',
+					url: 'http://127.0.0.1:8000/api/usertestresult/' + uuid,
 					data: typeScopeValue[testType],
 					headers: {
 						'Content-Type': 'application/json'
@@ -256,7 +304,7 @@
 		};
 
 		$scope.$watch('selectedPatient.title', function(newValue, oldValue) {
-			if(newValue === undefined){
+			if (newValue === undefined) {
 				$scope.user = {};
 				$scope.medicationChoices = [];
 				$scope.allergyChoices = [];
@@ -265,8 +313,9 @@
 				$scope.blood = {};
 				$scope.vital = {};
 			}
-			for(var names in $scope.allUsers){
-				if(newValue === $scope.allUsers[names].name){
+			for (var names in $scope.allUsers) {
+				if (newValue === $scope.allUsers[names].name) {
+					$scope.selectedUserUUID = $scope.allUsers[names].uuid;
 					getUserData($scope.allUsers[names].uuid);
 					getMedicationData($scope.allUsers[names].uuid);
 					getAllergyData($scope.allUsers[names].uuid);

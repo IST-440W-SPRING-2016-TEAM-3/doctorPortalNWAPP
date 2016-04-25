@@ -233,7 +233,7 @@ p {
   width: 20%;
   display: inline-block;
   position: relative;
-  margin-right: 1%;
+  margin-right: 2%;
   float: left; }
 
 .mySmallBlock {
@@ -279,7 +279,7 @@ p {
   border-radius: 4px; }
 
 .myFullInput {
-  width: 91%;
+  width: 100%;
   display: block;
   height: 38px;
   padding: 8px 10px;

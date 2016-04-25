@@ -8,6 +8,8 @@ block content
 				li.active(role='presentation')
 					a(data-toggle="tab", href='#updateuserprofile') Update User
 				li(role='presentation')
+					a(data-toggle="tab", href='#register') Register New User
+				li(role='presentation')
 					a(data-toggle="tab", href='#testresults') Test Results
 				li(role='presentation')
 					a(data-toggle="tab", href='#medications') Medications 
@@ -15,42 +17,41 @@ block content
 					a(data-toggle="tab", href='#allergies') Allergies 
 				li(role='presentation')
 					a(data-toggle="tab", href='#immunizations') Immunizations
-				li(role='presentation')
-					a(data-toggle="tab", href='#register') Register New User
+					
 		.userContent.tab-content
 			angucomplete-alt#ex1(placeholder='Search Patients', pause='100', selected-object='selectedPatient', local-data='allUsers', search-fields='name', title-field='name', minlength='1', input-class='form-control form-control-small input50_search')
 			#updateuserprofile.tab-pane.fade.in.active
 				h1 Update User
 				.mySmallBlock
 					label.myLabel First Name *
-					input.mySmallInput(ng-model="user.firstname")
+					input.input100(ng-model="user.firstname")
 				.mySmallBlock
 					label.myLabel Last Name *
-					input.mySmallInput(ng-model="user.lastname")
+					input.input100(ng-model="user.lastname")
 				.myClear
 				.mySmallBlock
 					label.myLabel Email *
-					input.mySmallInput(type='email', ng-model="user.email")  
+					input.input100(type='email', ng-model="user.email")  
 				.mySmallBlock
 					label.myLabel Phone
-					input.mySmallInput(ng-model="user.phone")
+					input.input100(ng-model="user.phone")
 				.myClear
 				.mySmallBlock
 					label.myLabel Street Address
-					input.mySmallInput(ng-model="user.streetaddress")
+					input.input100(ng-model="user.streetaddress")
 				.mySmallBlock
 					label.myLabel City
-					input.mySmallInput(ng-model="user.city")
+					input.input100(ng-model="user.city")
 				.myClear
 				.myXSmallBlock
 					label.myLabel Country
-					input.mySmallInput(ng-model="user.country")
+					input.input100(ng-model="user.country")
 				.myXSmallBlock
 					label.myLabel State
-					input.mySmallInput(ng-model="user.state")
+					input.input100(ng-model="user.state")
 				.myXSmallBlock
 					label.myLabel ZIP
-					input.mySmallInput(ng-model="user.zip")
+					input.input100(ng-model="user.zip")
 
 				.myClear
 				.myXSmallBlock
@@ -63,18 +64,18 @@ block content
 					| Other
 				.myXSmallBlock
 					label.myLabel Height
-					input.mySmallInput(ng-model="user.height")
+					input.input100(ng-model="user.height")
 				.myXSmallBlock
 					label.myLabel Weight
-					input.mySmallInput(ng-model="user.weight")
+					input.input100(ng-model="user.weight")
 
 				.myClear
 				.mySmallBlock
 					label.myLabel Primary Insurance
-					input.mySmallInput(ng-model="user.primaryinsurance")
+					input.input100(ng-model="user.primaryinsurance")
 				.mySmallBlock
 					label.myLabel Primary Pharmacy
-					input.mySmallInput(ng-model="user.primarypharmacy")
+					input.input100(ng-model="user.primarypharmacy")
 				.myMediumBlock
 					label.myLabel Comment
 					input.myFullInput(ng-model="user.comment")
@@ -457,37 +458,41 @@ block content
 
 							a.mySubmit.btnsub(ng-show='showAddImmunizationChoice(choice)', ng-click='addNewImmunizationChoice()') Add another Immunization
 				a.mySubmit.pull-right(ng-click='submitImmunization()') Submit
+				
 			#register.tab-pane.fade
 				h1 Register New User
-				.myMediumBlock
+				.myMain
 					form(action='/register', method='post')
-						.form-horizontal
-							.form-group
-								label First Name
-									.input-group
-								input.form-control(type='text', placeholder='First Name', ng-model='userData.fname', name='fname', required='')
-							.form-group
-								label Last Name
-								.input-group
-								input.form-control(type='text', placeholder='Last Name', ng-model='userData.lname', name='lname', required='')
-							.form-group
-								label User Access
-								select.form-control(name='useraccess', ng-model='userData.useraccess', required='')
-									option(value='')
-									option(value='user') User
-									option(value='doctor') Doctor
-									option(value='admin') Admin
-							.form-group
-								label Email
-								.input-group
-								input.form-control(type='email', placeholder='Email Address', ng-model='userData.email', name='email', required='')
-							.form-group
-								label Password
-								.input-group
-								input.form-control(type='password', placeholder='Password', ng-model='userData.pass', name='pass', required='')
-							.form-group
-								label Confirm Password
-								.input-group
-								input.form-control(type='password', placeholder='Password', ng-model='userData.passconf', name='passconf', required='')
-							.row.center-text
-								button.btn.btn-success.btn-block(type='submit') Register
+					.mySmallBlock
+						label.myLabel First Name *
+						input.form-control.input100(type='text', placeholder='First Name', ng-model='userData.fname', name='fname', required='')
+					.myClear
+					.mySmallBlock
+						label.myLabel Last Name *
+						input.form-control.input100(type='text', placeholder='Last Name', ng-model='userData.lname', name='lname', required='')
+					.myClear
+					.mySmallBlock
+						label.myLabel User Access *
+						select.form-control.input100(name='useraccess', ng-model='userData.useraccess', required='')
+							option(value='')
+							option(value='user') User
+							option(value='doctor') Doctor
+							option(value='admin') Admin
+					.myClear
+					.mySmallBlock
+						label.myLabel Email *
+						.input-group
+						input.form-control.input100(type='email', placeholder='Email Address', ng-model='userData.email', name='email', required='')
+					.myClear
+					.mySmallBlock
+						label.myLabel Password *
+						.input-group
+						input.form-control.input100(type='password', placeholder='Password', ng-model='userData.pass', name='pass', required='')
+					.myClear
+					.mySmallBlock
+						label.myLabel Confirm Password *
+						.input-group
+						input.form-control.input100(type='password', placeholder='Password', ng-model='userData.passconf', name='passconf', required='')
+					.myClear
+					.row.center-text
+						button.btn.btn-success.btn-block(type='submit') Register

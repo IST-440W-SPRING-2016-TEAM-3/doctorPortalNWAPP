@@ -362,7 +362,7 @@ block content
 							span.myWarning(ng-show="medications.description.$invalid && medications.description.$touched") You must enter a description
 							span.myWarning(ng-show="medications.description.$error.maxlength") Input cannot be more than 50 characters
 							span.myWarning(ng-show="medications.description.$error.minlength") Input must be atleast 20 characters
-							a.mySubmit.btnsub(ng-show='showAddMedicationChoice(choice)', ng-click='addNewMedicationChoice()') Add another Medication
+							a.mySubmit.btnsub(ng-show='addChoice(choice, "medication")', ng-click='addNewChoice("medication")') Add another Medication
 				a.mySubmit.pull-right(ng-click='submitMecicine()') Submit
 
 			#allergies.tab-pane.fade
@@ -410,7 +410,7 @@ block content
 							span.myWarning(ng-show="allergies.description.$invalid && allergies.description.$touched") You must enter a description
 							span.myWarning(ng-show="allergies.description.$error.maxlength") Input cannot be more than 50 characters
 							span.myWarning(ng-show="allergies.description.$error.minlength") Input must be atleast 20 characters
-							a.mySubmit.btnsub(ng-show='showAddAllergiesChoice(choice)', ng-click='addNewAllergiesChoice()') Add another Allergy
+							a.mySubmit.btnsub(ng-show='addChoice(choice, "allergy")', ng-click='addNewChoice("allergy")') Add another Allergy
 				a.mySubmit.pull-right(ng-click='submitAllergy()') Submit
 			#immunizations.tab-pane.fade
 				h1 Immunizations
@@ -455,7 +455,7 @@ block content
 							span.myWarning(ng-show="immunizations.description.$error.maxlength") Input cannot be more than 50 characters
 							span.myWarning(ng-show="immunizations.description.$error.minlength") Input must be atleast 20 characters
 
-							a.mySubmit.btnsub(ng-show='showAddImmunizationChoice(choice)', ng-click='addNewImmunizationChoice()') Add another Immunization
+							a.mySubmit.btnsub(ng-show='addChoice(choice, "immunization")', ng-click='addNewChoice("immunization")') Add another Immunization
 				a.mySubmit.pull-right(ng-click='submitImmunization()') Submit
 			#register.tab-pane.fade
 				h1 Register New User

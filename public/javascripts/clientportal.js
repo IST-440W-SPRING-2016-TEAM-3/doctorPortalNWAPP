@@ -18,6 +18,7 @@
 					$scope.allUsers[keys] = {};
 					$scope.allUsers[keys].uuid = allUsers[keys].uuid;
 					$scope.allUsers[keys].name = allUsers[keys].fname + " " + allUsers[keys].lname;
+					$scope.allUsers[keys].useraccess = allUsers[keys].useraccess;
 				}
 			});
 
@@ -118,8 +119,8 @@
 							$scope.allergyChoices.push({
 								id: 'choice' + allergies,
 								name: response.data[allergies].name,
-								datestart: new Date(response.data[allergies].startdate),
-								dateend: new Date(response.data[allergies].enddate),
+								startdate: new Date(response.data[allergies].startdate),
+								enddate: new Date(response.data[allergies].enddate),
 								description: response.data[allergies].description
 							});
 						}
@@ -278,7 +279,9 @@
 			var updatedUserData = $scope.immunizationChoices;
 
 			for (var keys in updatedUserData) {
-				putImmunzationData(updatedUserData[keys]);
+				if(updatedUserData[keys].name !== "" || updatedUserData[keys].name !== null || updatedUserData[keys].name !== undefined){
+					putImmunzationData(updatedUserData[keys]);
+				}
 			}
 		};
 
@@ -286,7 +289,9 @@
 			var updatedUserData = $scope.medicationChoices;
 
 			for (var keys in updatedUserData) {
-				putMedicationData(updatedUserData[keys]);
+				if(updatedUserData[keys].name !== "" || updatedUserData[keys].name !== null || updatedUserData[keys].name !== undefined){
+					putMedicationData(updatedUserData[keys]);
+				}
 			}
 		};
 
@@ -294,7 +299,9 @@
 			var updatedUserData = $scope.allergyChoices;
 
 			for (var keys in updatedUserData) {
-				putAllergyData(updatedUserData[keys]);
+				if(updatedUserData[keys].name !== "" || updatedUserData[keys].name !== null || updatedUserData[keys].name !== undefined){
+					putAllergyData(updatedUserData[keys]);
+				}
 			}
 		};
 
@@ -353,6 +360,7 @@
 			for (var names in $scope.allUsers) {
 				if (newValue === $scope.allUsers[names].name) {
 					$scope.selectedUserUUID = $scope.allUsers[names].uuid;
+					$scope.selectedUserAccess = $scope.allUsers[names].useraccess;
 					getUserData($scope.allUsers[names].uuid);
 					getMedicationData($scope.allUsers[names].uuid);
 					getAllergyData($scope.allUsers[names].uuid);

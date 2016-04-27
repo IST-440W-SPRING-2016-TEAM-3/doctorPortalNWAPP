@@ -33,10 +33,10 @@ router.get('/', function(req, response, next) {
 				});
             } else {
 				response.clearCookie('session', { path: '/' });
-			    response.redirect('login');
+			    response.redirect('/');
             }
         });
-    } else {response.redirect('login');}
+    } else {response.redirect('/');}
 });
 
 module.exports = router;

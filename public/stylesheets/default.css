@@ -233,7 +233,7 @@ p {
   width: 20%;
   display: inline-block;
   position: relative;
-  margin-right: 1%;
+  margin-right: 2%;
   float: left; }
 
 .mySmallBlock {
@@ -266,11 +266,15 @@ p {
 .myLabel_last {
   margin-left: 5%; }
 
+#registerB {
+  margin-top: 5px;
+  width: 25%; }
+
 .mySmallInput {
   width: 80%;
   display: block;
   height: 38px;
-  padding: 8px 10px;
+  padding: 7px 10px;
   margin-bottom: 5px;
   font-size: 15px;
   line-height: 1.4;
@@ -279,7 +283,7 @@ p {
   border-radius: 4px; }
 
 .myFullInput {
-  width: 91%;
+  width: 100%;
   display: block;
   height: 38px;
   padding: 8px 10px;
@@ -295,7 +299,7 @@ p {
   width: 100%;
   display: block;
   height: 38px;
-  padding: 8px, 10px;
+  padding: 6px 12px;
   margin-bottom: 5px;
   font-size: 15px;
   line-height: 1.4;

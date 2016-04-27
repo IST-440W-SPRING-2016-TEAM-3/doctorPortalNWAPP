@@ -93,12 +93,10 @@ block content
 								type="number" 
 								name="pH"
 								ng-maxlength="100"
-								ng-pattern="'\d*[1234567890]ml'" 
 								ng-model="urine.phlevel" 
 								ng-required="true")
 							span.myWarning(ng-show="urineTests.pH.$invalid && urineTests.pH.$touched") You must enter a number between 1-14
 							span.myWarning(ng-show="urineTests.pH.$error.maxlength") Input cannot be more than 2 characters
-							span.myWarning(ng-show="urineTests.pH.$error.pattern") Jawn you no gucci
 							.myClear		$error.minlength
 							label.myLabel Glucose
 							input.mySmallInput(placeholder="mg/dL" 
@@ -389,24 +387,25 @@ block content
 								type="text" 
 								name="allergyName" 
 								ng-model="choice.name"
-								ng-maxlength="12" 
+								ng-maxlength="20" 
 								ng-required="true")
 							span.myWarning(ng-show="allergies.allergyName.$invalid && allergies.allergyName.$touched") You must enter an allergy name
-							span.myWarning(ng-show="allergies.allergyName.$error.maxlength") Input cannot be more than 12 characters
+							span.myWarning(ng-show="allergies.allergyName.$error.maxlength") Input cannot be more than 20 characters
 							.myClear
 							.mySmallBlock
 								label.control-label.myLabel Date Start
 								input(class="datepicker1 input50 form-control"
 								type="date"
 								name="DateStart" 
-								ng-model="choice.datestart"
+								ng-model="choice.startdate"
 								ng-required="true")
 								span.myWarning(ng-show="allergies.DateStart.$invalid && allergies.DateStart.$touched") You must enter a start date
 
 							.mySmallBlock
 								label.control-label.myLabel_last Date End
-								input.form-control.input50_last.datepicker2(type="date"
-								ng-model="choice.dateend"
+								input.form-control.input50_last.datepicker2(
+								type="date"
+								ng-model="choice.enddate"
 								name="DateEnd"
 								ng-required="true")
 								span.myWarning(ng-show="allergies.DateEnd.$invalid && allergies.DateEnd.$touched") You must enter an end date

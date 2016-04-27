@@ -78,7 +78,8 @@ block content
 				.myMediumBlock
 					label.myLabel Comment
 					input.myFullInput(ng-model="user.comment")
-
+				.myClear
+				a.mySubmit.btnsub(ng-click='submitUserData()')  Submit
 			#testresults.tab-pane.fade
 				h1 Test Results
 				.testMain
@@ -90,11 +91,13 @@ block content
 								placeholder="1-14"
 								type="text" 
 								name="pH"
-								ng-maxlength="2" 
+								ng-maxlength="100"
+								ng-pattern="'\d*[1234567890]ml'" 
 								ng-model="urine.phlevel" 
 								ng-required="true")
 							span.myWarning(ng-show="urineTests.pH.$invalid && urineTests.pH.$touched") You must enter a number between 1-14
 							span.myWarning(ng-show="urineTests.pH.$error.maxlength") Input cannot be more than 2 characters
+							span.myWarning(ng-show="urineTests.pH.$error.pattern") Jawn you no gucci
 							.myClear		$error.minlength
 							label.myLabel Glucose
 							input.mySmallInput(placeholder="mg/dL" 
@@ -460,34 +463,34 @@ block content
 			#register.tab-pane.fade
 				h1 Register New User
 				.myMediumBlock
-					form(action='/register', method='post')
+					form
 						.form-horizontal
 							.form-group
 								label First Name
 									.input-group
-								input.form-control(type='text', placeholder='First Name', ng-model='userData.fname', name='fname', required='')
+								input.form-control(type='text', placeholder='First Name', ng-model='register.fname', name='fname', required='')
 							.form-group
 								label Last Name
 								.input-group
-								input.form-control(type='text', placeholder='Last Name', ng-model='userData.lname', name='lname', required='')
+								input.form-control(type='text', placeholder='Last Name', ng-model='register.lname', name='lname', required='')
 							.form-group
 								label User Access
-								select.form-control(name='useraccess', ng-model='userData.useraccess', required='')
+								select.form-control(ng-model='register.useraccess', required='')
 									option(value='')
 									option(value='user') User
-									option(value='doctor') Doctor
+									option(value='dn') Doctor/Nurse
 									option(value='admin') Admin
 							.form-group
 								label Email
 								.input-group
-								input.form-control(type='email', placeholder='Email Address', ng-model='userData.email', name='email', required='')
+								input.form-control(type='email', placeholder='Email Address', ng-model='register.email', name='email', required='')
 							.form-group
 								label Password
 								.input-group
-								input.form-control(type='password', placeholder='Password', ng-model='userData.pass', name='pass', required='')
+								input.form-control(type='password', placeholder='Password', ng-model='register.password', name='pass', required='')
 							.form-group
 								label Confirm Password
 								.input-group
-								input.form-control(type='password', placeholder='Password', ng-model='userData.passconf', name='passconf', required='')
+								input.form-control(type='password', placeholder='Password', ng-model='register.passconf', name='passconf', required='')
 							.row.center-text
-								button.btn.btn-success.btn-block(type='submit') Register
+								button.btn.btn-success.btn-block(ng-click='submitRegister()') Register

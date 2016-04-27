@@ -473,18 +473,18 @@ block content
 			#register.tab-pane.fade
 				h1 Register New User
 				.myMain
-					form(action='/register', method='post')
+					form
 					.mySmallBlock
 						label.myLabel First Name *
-						input.form-control.input100(type='text', placeholder='First Name', ng-model='userData.fname', name='fname', required='')
+						input.form-control.input100(type='text', placeholder='First Name', ng-model='register.fname', name='fname', required='')
 					.myClear
 					.mySmallBlock
 						label.myLabel Last Name *
-						input.form-control.input100(type='text', placeholder='Last Name', ng-model='userData.lname', name='lname', required='')
+						input.form-control.input100(type='text', placeholder='Last Name', ng-model='register.lname', name='lname', required='')
 					.myClear
 					.mySmallBlock
 						label.myLabel User Access *
-						select.form-control.input100(name='useraccess', ng-model='userData.useraccess', required='')
+						select.form-control.input100(name='useraccess', ng-model='register.useraccess', required='')
 							option(value='')
 							option(value='user') User
 							option(value='dn') Doctor/Nurse
@@ -493,18 +493,18 @@ block content
 					.mySmallBlock
 						label.myLabel Email *
 						.input-group
-						input.form-control.input100(type='email', placeholder='Email Address', ng-model='userData.email', name='email', required='')
+						input.form-control.input100(type='email', placeholder='Email Address', ng-model='register.email', name='email', required='')
 					.myClear
 					.mySmallBlock
 						label.myLabel Password *
 						.input-group
-						input.form-control.input100(type='password', placeholder='Password', ng-model='userData.pass', name='pass', required='')
+						input.form-control.input100(type='password', placeholder='Password', ng-model='register.password', name='pass', required='')
 					.myClear
 					.mySmallBlock
 						label.myLabel Confirm Password *
 						.input-group
-						input.form-control.input100(type='password', placeholder='Password', ng-model='userData.passconf', name='passconf', required='')
+						input.form-control.input100(type='password', placeholder='Password', ng-model='register.passconf', name='passconf', required='')
 					.myClear
 					.mySmallBlock
 						//labe.myLabel
-						button#registerB.btn.btn-success.btn-block(type='submit') Register
+				a.mySubmit.pull-right(ng-click='submitRegister()') Register

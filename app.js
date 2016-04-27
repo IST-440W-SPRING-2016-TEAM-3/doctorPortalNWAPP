@@ -8,13 +8,32 @@ var clientSessions = require("client-sessions");
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var login = require('./routes/login');
+var loginadmin = require('./routes/loginadmin');
+var loginnd = require('./routes/loginnd');
 var register = require('./routes/register');
 var logout = require('./routes/logout');
 var dashboard = require('./routes/dashboard');
 var api = require('./routes/api');
 
 var app = express();
+
+var mongoose = require('mongoose'),
+    connStr = 'mongodb://localhost:27017/440w';
+
+function connectMongo(logMessage){
+    mongoose.connect(connStr, function(err) {
+        if (err) throw err;
+        console.log(logMessage);
+    });
+}
+
+function disconnectMongo(logMessage){
+    if(mongoose.connection.close()){
+        console.log(logMessage);
+    }
+}
+
+connectMongo('APPJS::Successfully connected to MongoDB');
 
 app.use(clientSessions({
   cookieName: 'session',
@@ -38,7 +57,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/login', login);
+app.use('/loginadmin', loginadmin);
+app.use('/loginnd', loginnd);
 app.use('/register', register);
 app.use('/logout', logout);
 app.use('/dashboard', dashboard);

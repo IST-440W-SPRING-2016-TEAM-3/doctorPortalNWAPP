@@ -79,7 +79,8 @@ block content
 				.myMediumBlock
 					label.myLabel Comment
 					input.myFullInput(ng-model="user.comment")
-
+				.myClear
+				a.mySubmit.btnsub(ng-click='submitUserData()')  Submit
 			#testresults.tab-pane.fade
 				h1 Test Results
 				.testMain
@@ -91,11 +92,13 @@ block content
 								placeholder="1-14"
 								type="number" 
 								name="pH"
-								ng-maxlength="2" 
+								ng-maxlength="100"
+								ng-pattern="'\d*[1234567890]ml'" 
 								ng-model="urine.phlevel" 
 								ng-required="true")
 							span.myWarning(ng-show="urineTests.pH.$invalid && urineTests.pH.$touched") You must enter a number between 1-14
 							span.myWarning(ng-show="urineTests.pH.$error.maxlength") Input cannot be more than 2 characters
+							span.myWarning(ng-show="urineTests.pH.$error.pattern") Jawn you no gucci
 							.myClear		$error.minlength
 							label.myLabel Glucose
 							input.mySmallInput(placeholder="mg/dL" 
@@ -484,7 +487,7 @@ block content
 						select.form-control.input100(name='useraccess', ng-model='userData.useraccess', required='')
 							option(value='')
 							option(value='user') User
-							option(value='doctor') Doctor
+							option(value='dn') Doctor/Nurse
 							option(value='admin') Admin
 					.myClear
 					.mySmallBlock

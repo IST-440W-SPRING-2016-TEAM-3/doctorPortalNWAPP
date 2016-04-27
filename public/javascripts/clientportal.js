@@ -17,7 +17,7 @@
 				for (var keys in allUsers) {
 					$scope.allUsers[keys] = {};
 					$scope.allUsers[keys].uuid = allUsers[keys].uuid;
-					$scope.allUsers[keys].name = allUsers[keys].firstname + " " + allUsers[keys].lastname;
+					$scope.allUsers[keys].name = allUsers[keys].fname + " " + allUsers[keys].lname;
 				}
 			});
 
@@ -236,6 +236,43 @@
 					}
 				});
 		}
+
+		$scope.submitUserData = function() {
+			var userData = $scope.user,
+				uuid = $scope.selectedUserUUID;
+
+			$http({
+					method: 'PUT',
+					url: 'http://127.0.0.1:8000/api/userdata/' + uuid,
+					data: userData,
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+				.then(function successCallback(response) {
+					if (response.status === 200) {
+						location.href = "/";
+					}
+				});
+		};
+
+		$scope.submitRegister = function() {
+			var userRegistrationData = $scope.register;
+
+			$http({
+					method: 'POST',
+					url: 'http://127.0.0.1:8000/api/userlogin/',
+					data: userRegistrationData,
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+				.then(function successCallback(response) {
+					if (response.status === 200) {
+						location.href = "/";
+					}
+				});
+		};
 
 		$scope.submitImmunization = function() {
 			var updatedUserData = $scope.immunizationChoices;

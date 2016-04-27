@@ -36,11 +36,15 @@
 	@extend .myLabel;
 	margin-left: 5%;
 }
+#registerB{
+	margin-top: 5px;
+	width:25%;
+}
 .mySmallInput {
 	width: 80%;
 	display: block;
 	height: 38px;
-	padding: 8px 10px;
+	padding: 7px 10px;
 	margin-bottom: 5px;
 	font-size: 15px;
 	line-height: 1.4;

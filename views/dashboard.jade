@@ -17,7 +17,7 @@ block content
 					a(data-toggle="tab", href='#allergies') Allergies 
 				li(role='presentation')
 					a(data-toggle="tab", href='#immunizations') Immunizations
-					
+
 		.userContent.tab-content
 			angucomplete-alt#ex1(placeholder='Search Patients', pause='100', selected-object='selectedPatient', local-data='allUsers', search-fields='name', title-field='name', minlength='1', input-class='form-control form-control-small input50_search')
 			#updateuserprofile.tab-pane.fade.in.active
@@ -89,7 +89,7 @@ block content
 							label.myLabel pH Level
 							input.mySmallInput(
 								placeholder="1-14"
-								type="text" 
+								type="number" 
 								name="pH"
 								ng-maxlength="2" 
 								ng-model="urine.phlevel" 
@@ -102,30 +102,32 @@ block content
 								name="Glucose"
 								ng-maxlength="5"  
 								ng-model="urine.glucoseurine"
-								ng-pattern="/^[0-9]*([mg]*)$/"  
+								type="number"
 								ng-required="true")
-							span.myWarning(ng-show="urineTests.Glucose.$error.pattern") You must enter a number with weight
+							//span.myWarning(ng-show="urineTests.Glucose.$error.pattern") You must enter a number with weight
 							span.myWarning(ng-show="urineTests.Glucose.$invalid && urineTests.Glucose.$touched") You must enter glucose level
-							span.myWarning(ng-show="urineTests.Glucose.$error.maxlength") Input cannot be more than 10 characters
+							span.myWarning(ng-show="urineTests.Glucose.$error.maxlength") Input cannot be more than 5 characters
+							//- ng-pattern="/^[0-9]*([mg]*)$/" 
 
 							.myClear		
 							label.myLabel Ketones
 							Input.mySmallInput(placeholder="mg/dL" 
 								name="Ketones"
-								ng-maxlength="10" 
+								type="number"
+								ng-maxlength="5" 
 								ng-model="urine.ketones"
 								ng-required="true")
 							span.myWarning(ng-show="urineTests.Ketones.$invalid && urineTests.Ketones.$touched") You must enter a ketones level
-							span.myWarning(ng-show="urineTests.Ketones.$error.maxlength") Input cannot be more than 10 characters
+							span.myWarning(ng-show="urineTests.Ketones.$error.maxlength") Input cannot be more than 5 characters
 
 							.myClear		
 							label.myLabel Gravity
 							input.mySmallInput(placeholder="1.005 - 1.030" 
-								type="text" 
+								type="number" 
 								name="Gravity" 
 								ng-model="urine.gravity" 
 								ng-required="true"
-								ng-maxlength="4")
+								ng-maxlength="5")
 							span.myWarning(ng-show="urineTests.Gravity.$invalid && urineTests.Gravity.$touched") You must enter a number between 1.005-1.030
 							span.myWarning(ng-show="urineTests.Gravity.$error.maxlength") Input cannot be more than 4 characters
 
@@ -149,13 +151,13 @@ block content
 						form(name='bloodTests' novalidate)
 							label.myLabel Cholesterol
 							input.mySmallInput(placeholder="mg/dL"
-								type="text" 
+								type="number"  
 								name="Cholesterol"
-								ng-maxlength="10" 
+								ng-maxlength="5" 
 								ng-model="blood.cholesterol" 
 								ng-required="true")
 							span.myWarning(ng-show="bloodTests.Cholesterol.$invalid && bloodTests.Cholesterol.$touched") You must enter a cholesterol levels
-							span.myWarning(ng-show="bloodTests.Cholesterol.$error.maxlength") Input cannot be more than 10 characters
+							span.myWarning(ng-show="bloodTests.Cholesterol.$error.maxlength") Input cannot be more than 5 characters
 
 							.myClear		
 							label.myLabel Blood Type
@@ -171,24 +173,24 @@ block content
 							.myClear		
 							label.myLabel Glucose
 							input.mySmallInput(placeholder="mg/dL"
-								type="text" 
+								type="number"  
 								name="Glucose"
-								ng-maxlength="10" 
+								ng-maxlength="5" 
 								ng-model="blood.glucoseblood" 
 								ng-required="true")
 							span.myWarning(ng-show="bloodTests.Glucose.$invalid && bloodTests.Glucose.$touched") You must enter a glucose level
-							span.myWarning(ng-show="bloodTests.Glucose.$error.maxlength") Input cannot be more than 10 charatecters
+							span.myWarning(ng-show="bloodTests.Glucose.$error.maxlength") Input cannot be more than 5 charatecters
 
 							.myClear		
 							label.myLabel CRP level
 							input.mySmallInput(placeholder="mg/L"
-								type="text" 
+								type="number"  
 								name="CRP"
-								ng-maxlength="10" 
+								ng-maxlength="5" 
 								ng-model="blood.cpr" 
 								ng-required="true")
 							span.myWarning(ng-show="bloodTests.CRP.$invalid && bloodTests.CRP.$touched") You must enter a CRP level
-							span.myWarning(ng-show="bloodTests.CRP.$error.maxlength") Input cannot be more than 10 charatecters
+							span.myWarning(ng-show="bloodTests.CRP.$error.maxlength") Input cannot be more than 5 charatecters
 
 							.myClear
 							label.myLabel Date Recorded
@@ -236,7 +238,7 @@ block content
 						form(name="vitalTests" novalidate)
 							label.myLabel Blood Pressure
 							input.mySmallInput(placeholder="Diastolic"
-								type="text" 
+								type="number"  
 								name="Diastolic"
 								ng-maxlength="3" 
 								ng-model="vital.blooddiastolic" 
@@ -246,7 +248,7 @@ block content
 
 							.myClear			
 							input.mySmallInput(placeholder="Systolic"
-								type="text" 
+								type="number" 
 								name="Systolic"
 								ng-maxlength="3" 
 								ng-model="vital.bloodsystolic" 
@@ -257,18 +259,18 @@ block content
 							.myClear		
 							label.myLabel Respiratory Rate
 							input.mySmallInput(placeholder="BPM"
-								type="text" 
+								type="number"  
 								name="BPM"
-								ng-maxlength="10" 
+								ng-maxlength="3" 
 								ng-model="vital.respiratoryrate" 
 								ng-required="true")
 							span.myWarning(ng-show="vitalTests.BPM.$invalid && vitalTests.BPM.$touched") You must enter a BPM
-							span.myWarning(ng-show="vitalTests.BPM.$error.maxlength") Input cannot be more than 10 charatecters
+							span.myWarning(ng-show="vitalTests.BPM.$error.maxlength") Input cannot be more than 3 charatecters
 
 							.myClear		
 							label.myLabel Heart Rate
 							input.mySmallInput(placeholder="# beats per min"
-								type="text" 
+								type="number"  
 								name="heartRate"
 								ng-maxlength="3" 
 								ng-model="vital.heartrate"
@@ -278,7 +280,7 @@ block content
 							.myClear		
 							label.myLabel Body Temperature
 							input.mySmallInput(placeholder="Degrees Fereinheit"
-								type="text" 
+								type="number"  
 								name="Bodytemp"
 								ng-maxlength="3" 
 								ng-model="vital.bodytemperature"
@@ -322,10 +324,12 @@ block content
 								type="text" 
 								name="Dosage" 
 								ng-model="choice.dosage"
-								ng-pattern="/^[0-9]*([a-z]*)$/"  
+								ng-pattern="/^[0-9]*([a-z]*)$/"
+								ng-maxlength="15"   
 								ng-required="true")
-							span.myWarning(ng-show="medications.Dosage.$error.pattern") WHAT IS THAT???
-							span.myWarning(ng-show="medications.Dosage.$invalid && medications.Dosage.$touched") You must enter a dosage	
+							span.myWarning(ng-show="medications.Dosage.$error.pattern") You must enter weight and measurement unit
+							span.myWarning(ng-show="medications.Dosage.$invalid && medications.Dosage.$touched") You must enter a dosage
+							span.myWarning(ng-show="medications.Dosage.$error.maxlength") Input cannot be more than 15 charatecters	
 							.myClear
 
 							label.myLabel Frequency (twice a day/ every 2 hours etc.)
@@ -462,7 +466,7 @@ block content
 
 							a.mySubmit.btnsub(ng-show='addChoice(choice, "immunization")', ng-click='addNewChoice("immunization")') Add another Immunization
 				a.mySubmit.pull-right(ng-click='submitImmunization()') Submit
-				
+
 			#register.tab-pane.fade
 				h1 Register New User
 				.myMain
@@ -498,5 +502,6 @@ block content
 						.input-group
 						input.form-control.input100(type='password', placeholder='Password', ng-model='userData.passconf', name='passconf', required='')
 					.myClear
-					.row.center-text
-						button.btn.btn-success.btn-block(type='submit') Register
+					.mySmallBlock
+						//labe.myLabel
+						button#registerB.btn.btn-success.btn-block(type='submit') Register

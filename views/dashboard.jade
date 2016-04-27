@@ -8,6 +8,8 @@ block content
 				li.active(role='presentation')
 					a(data-toggle="tab", href='#updateuserprofile') Update User
 				li(role='presentation')
+					a(data-toggle="tab", href='#register') Register New User
+				li(role='presentation')
 					a(data-toggle="tab", href='#testresults') Test Results
 				li(role='presentation')
 					a(data-toggle="tab", href='#medications') Medications 
@@ -15,42 +17,41 @@ block content
 					a(data-toggle="tab", href='#allergies') Allergies 
 				li(role='presentation')
 					a(data-toggle="tab", href='#immunizations') Immunizations
-				li(role='presentation')
-					a(data-toggle="tab", href='#register') Register New User
+
 		.userContent.tab-content
 			angucomplete-alt#ex1(placeholder='Search Patients', pause='100', selected-object='selectedPatient', local-data='allUsers', search-fields='name', title-field='name', minlength='1', input-class='form-control form-control-small input50_search')
 			#updateuserprofile.tab-pane.fade.in.active
 				h1 Update User
 				.mySmallBlock
 					label.myLabel First Name *
-					input.mySmallInput(ng-model="user.firstname")
+					input.input100(ng-model="user.firstname")
 				.mySmallBlock
 					label.myLabel Last Name *
-					input.mySmallInput(ng-model="user.lastname")
+					input.input100(ng-model="user.lastname")
 				.myClear
 				.mySmallBlock
 					label.myLabel Email *
-					input.mySmallInput(type='email', ng-model="user.email")  
+					input.input100(type='email', ng-model="user.email")  
 				.mySmallBlock
 					label.myLabel Phone
-					input.mySmallInput(ng-model="user.phone")
+					input.input100(ng-model="user.phone")
 				.myClear
 				.mySmallBlock
 					label.myLabel Street Address
-					input.mySmallInput(ng-model="user.streetaddress")
+					input.input100(ng-model="user.streetaddress")
 				.mySmallBlock
 					label.myLabel City
-					input.mySmallInput(ng-model="user.city")
+					input.input100(ng-model="user.city")
 				.myClear
 				.myXSmallBlock
 					label.myLabel Country
-					input.mySmallInput(ng-model="user.country")
+					input.input100(ng-model="user.country")
 				.myXSmallBlock
 					label.myLabel State
-					input.mySmallInput(ng-model="user.state")
+					input.input100(ng-model="user.state")
 				.myXSmallBlock
 					label.myLabel ZIP
-					input.mySmallInput(ng-model="user.zip")
+					input.input100(ng-model="user.zip")
 
 				.myClear
 				.myXSmallBlock
@@ -63,18 +64,18 @@ block content
 					| Other
 				.myXSmallBlock
 					label.myLabel Height
-					input.mySmallInput(ng-model="user.height")
+					input.input100(ng-model="user.height")
 				.myXSmallBlock
 					label.myLabel Weight
-					input.mySmallInput(ng-model="user.weight")
+					input.input100(ng-model="user.weight")
 
 				.myClear
 				.mySmallBlock
 					label.myLabel Primary Insurance
-					input.mySmallInput(ng-model="user.primaryinsurance")
+					input.input100(ng-model="user.primaryinsurance")
 				.mySmallBlock
 					label.myLabel Primary Pharmacy
-					input.mySmallInput(ng-model="user.primarypharmacy")
+					input.input100(ng-model="user.primarypharmacy")
 				.myMediumBlock
 					label.myLabel Comment
 					input.myFullInput(ng-model="user.comment")
@@ -88,7 +89,7 @@ block content
 							label.myLabel pH Level
 							input.mySmallInput(
 								placeholder="1-14"
-								type="text" 
+								type="number" 
 								name="pH"
 								ng-maxlength="2" 
 								ng-model="urine.phlevel" 
@@ -99,30 +100,34 @@ block content
 							label.myLabel Glucose
 							input.mySmallInput(placeholder="mg/dL" 
 								name="Glucose"
-								ng-maxlength="10"  
+								ng-maxlength="5"  
 								ng-model="urine.glucoseurine"
+								type="number"
 								ng-required="true")
+							//span.myWarning(ng-show="urineTests.Glucose.$error.pattern") You must enter a number with weight
 							span.myWarning(ng-show="urineTests.Glucose.$invalid && urineTests.Glucose.$touched") You must enter glucose level
-							span.myWarning(ng-show="urineTests.Glucose.$error.maxlength") Input cannot be more than 10 characters
+							span.myWarning(ng-show="urineTests.Glucose.$error.maxlength") Input cannot be more than 5 characters
+							//- ng-pattern="/^[0-9]*([mg]*)$/" 
 
 							.myClear		
 							label.myLabel Ketones
 							Input.mySmallInput(placeholder="mg/dL" 
 								name="Ketones"
-								ng-maxlength="10" 
+								type="number"
+								ng-maxlength="5" 
 								ng-model="urine.ketones"
 								ng-required="true")
 							span.myWarning(ng-show="urineTests.Ketones.$invalid && urineTests.Ketones.$touched") You must enter a ketones level
-							span.myWarning(ng-show="urineTests.Ketones.$error.maxlength") Input cannot be more than 10 characters
+							span.myWarning(ng-show="urineTests.Ketones.$error.maxlength") Input cannot be more than 5 characters
 
 							.myClear		
 							label.myLabel Gravity
 							input.mySmallInput(placeholder="1.005 - 1.030" 
-								type="text" 
+								type="number" 
 								name="Gravity" 
 								ng-model="urine.gravity" 
 								ng-required="true"
-								ng-maxlength="4")
+								ng-maxlength="5")
 							span.myWarning(ng-show="urineTests.Gravity.$invalid && urineTests.Gravity.$touched") You must enter a number between 1.005-1.030
 							span.myWarning(ng-show="urineTests.Gravity.$error.maxlength") Input cannot be more than 4 characters
 
@@ -146,13 +151,13 @@ block content
 						form(name='bloodTests' novalidate)
 							label.myLabel Cholesterol
 							input.mySmallInput(placeholder="mg/dL"
-								type="text" 
+								type="number"  
 								name="Cholesterol"
-								ng-maxlength="10" 
+								ng-maxlength="5" 
 								ng-model="blood.cholesterol" 
 								ng-required="true")
 							span.myWarning(ng-show="bloodTests.Cholesterol.$invalid && bloodTests.Cholesterol.$touched") You must enter a cholesterol levels
-							span.myWarning(ng-show="bloodTests.Cholesterol.$error.maxlength") Input cannot be more than 10 characters
+							span.myWarning(ng-show="bloodTests.Cholesterol.$error.maxlength") Input cannot be more than 5 characters
 
 							.myClear		
 							label.myLabel Blood Type
@@ -168,24 +173,24 @@ block content
 							.myClear		
 							label.myLabel Glucose
 							input.mySmallInput(placeholder="mg/dL"
-								type="text" 
+								type="number"  
 								name="Glucose"
-								ng-maxlength="10" 
+								ng-maxlength="5" 
 								ng-model="blood.glucoseblood" 
 								ng-required="true")
 							span.myWarning(ng-show="bloodTests.Glucose.$invalid && bloodTests.Glucose.$touched") You must enter a glucose level
-							span.myWarning(ng-show="bloodTests.Glucose.$error.maxlength") Input cannot be more than 10 charatecters
+							span.myWarning(ng-show="bloodTests.Glucose.$error.maxlength") Input cannot be more than 5 charatecters
 
 							.myClear		
 							label.myLabel CRP level
 							input.mySmallInput(placeholder="mg/L"
-								type="text" 
+								type="number"  
 								name="CRP"
-								ng-maxlength="10" 
+								ng-maxlength="5" 
 								ng-model="blood.cpr" 
 								ng-required="true")
 							span.myWarning(ng-show="bloodTests.CRP.$invalid && bloodTests.CRP.$touched") You must enter a CRP level
-							span.myWarning(ng-show="bloodTests.CRP.$error.maxlength") Input cannot be more than 10 charatecters
+							span.myWarning(ng-show="bloodTests.CRP.$error.maxlength") Input cannot be more than 5 charatecters
 
 							.myClear
 							label.myLabel Date Recorded
@@ -232,8 +237,8 @@ block content
 						h1 Vital Tests
 						form(name="vitalTests" novalidate)
 							label.myLabel Blood Pressure
-							input.input50(placeholder="Diastolic"
-								type="text" 
+							input.mySmallInput(placeholder="Diastolic"
+								type="number"  
 								name="Diastolic"
 								ng-maxlength="3" 
 								ng-model="vital.blooddiastolic" 
@@ -242,8 +247,8 @@ block content
 							span.myWarning(ng-show="vitalTests.Diastolic.$error.maxlength") Input cannot be more than 3 charatecters
 
 							.myClear			
-							input.input50(placeholder="Systolic"
-								type="text" 
+							input.mySmallInput(placeholder="Systolic"
+								type="number" 
 								name="Systolic"
 								ng-maxlength="3" 
 								ng-model="vital.bloodsystolic" 
@@ -254,18 +259,18 @@ block content
 							.myClear		
 							label.myLabel Respiratory Rate
 							input.mySmallInput(placeholder="BPM"
-								type="text" 
+								type="number"  
 								name="BPM"
-								ng-maxlength="10" 
+								ng-maxlength="3" 
 								ng-model="vital.respiratoryrate" 
 								ng-required="true")
 							span.myWarning(ng-show="vitalTests.BPM.$invalid && vitalTests.BPM.$touched") You must enter a BPM
-							span.myWarning(ng-show="vitalTests.BPM.$error.maxlength") Input cannot be more than 10 charatecters
+							span.myWarning(ng-show="vitalTests.BPM.$error.maxlength") Input cannot be more than 3 charatecters
 
 							.myClear		
 							label.myLabel Heart Rate
 							input.mySmallInput(placeholder="# beats per min"
-								type="text" 
+								type="number"  
 								name="heartRate"
 								ng-maxlength="3" 
 								ng-model="vital.heartrate"
@@ -275,7 +280,7 @@ block content
 							.myClear		
 							label.myLabel Body Temperature
 							input.mySmallInput(placeholder="Degrees Fereinheit"
-								type="text" 
+								type="number"  
 								name="Bodytemp"
 								ng-maxlength="3" 
 								ng-model="vital.bodytemperature"
@@ -308,7 +313,7 @@ block content
 								placeholder="Medication Name"
 								type="text" 
 								name="Medname" 
-								ng-model="choice.name" 
+								ng-model="choice.name"
 								ng-required="true")
 							span.myWarning(ng-show="medications.Medname.$invalid && medications.Medname.$touched") You must enter a medication name	
 							.myClear
@@ -318,9 +323,13 @@ block content
 								placeholder="mg, g, etc.."
 								type="text" 
 								name="Dosage" 
-								ng-model="choice.dosage" 
+								ng-model="choice.dosage"
+								ng-pattern="/^[0-9]*([a-z]*)$/"
+								ng-maxlength="15"   
 								ng-required="true")
-							span.myWarning(ng-show="medications.Dosage.$invalid && medications.Dosage.$touched") You must enter a dosage	
+							span.myWarning(ng-show="medications.Dosage.$error.pattern") You must enter weight and measurement unit
+							span.myWarning(ng-show="medications.Dosage.$invalid && medications.Dosage.$touched") You must enter a dosage
+							span.myWarning(ng-show="medications.Dosage.$error.maxlength") Input cannot be more than 15 charatecters	
 							.myClear
 
 							label.myLabel Frequency (twice a day/ every 2 hours etc.)
@@ -457,37 +466,42 @@ block content
 
 							a.mySubmit.btnsub(ng-show='addChoice(choice, "immunization")', ng-click='addNewChoice("immunization")') Add another Immunization
 				a.mySubmit.pull-right(ng-click='submitImmunization()') Submit
+
 			#register.tab-pane.fade
 				h1 Register New User
-				.myMediumBlock
+				.myMain
 					form(action='/register', method='post')
-						.form-horizontal
-							.form-group
-								label First Name
-									.input-group
-								input.form-control(type='text', placeholder='First Name', ng-model='userData.fname', name='fname', required='')
-							.form-group
-								label Last Name
-								.input-group
-								input.form-control(type='text', placeholder='Last Name', ng-model='userData.lname', name='lname', required='')
-							.form-group
-								label User Access
-								select.form-control(name='useraccess', ng-model='userData.useraccess', required='')
-									option(value='')
-									option(value='user') User
-									option(value='doctor') Doctor
-									option(value='admin') Admin
-							.form-group
-								label Email
-								.input-group
-								input.form-control(type='email', placeholder='Email Address', ng-model='userData.email', name='email', required='')
-							.form-group
-								label Password
-								.input-group
-								input.form-control(type='password', placeholder='Password', ng-model='userData.pass', name='pass', required='')
-							.form-group
-								label Confirm Password
-								.input-group
-								input.form-control(type='password', placeholder='Password', ng-model='userData.passconf', name='passconf', required='')
-							.row.center-text
-								button.btn.btn-success.btn-block(type='submit') Register
+					.mySmallBlock
+						label.myLabel First Name *
+						input.form-control.input100(type='text', placeholder='First Name', ng-model='userData.fname', name='fname', required='')
+					.myClear
+					.mySmallBlock
+						label.myLabel Last Name *
+						input.form-control.input100(type='text', placeholder='Last Name', ng-model='userData.lname', name='lname', required='')
+					.myClear
+					.mySmallBlock
+						label.myLabel User Access *
+						select.form-control.input100(name='useraccess', ng-model='userData.useraccess', required='')
+							option(value='')
+							option(value='user') User
+							option(value='doctor') Doctor
+							option(value='admin') Admin
+					.myClear
+					.mySmallBlock
+						label.myLabel Email *
+						.input-group
+						input.form-control.input100(type='email', placeholder='Email Address', ng-model='userData.email', name='email', required='')
+					.myClear
+					.mySmallBlock
+						label.myLabel Password *
+						.input-group
+						input.form-control.input100(type='password', placeholder='Password', ng-model='userData.pass', name='pass', required='')
+					.myClear
+					.mySmallBlock
+						label.myLabel Confirm Password *
+						.input-group
+						input.form-control.input100(type='password', placeholder='Password', ng-model='userData.passconf', name='passconf', required='')
+					.myClear
+					.mySmallBlock
+						//labe.myLabel
+						button#registerB.btn.btn-success.btn-block(type='submit') Register
